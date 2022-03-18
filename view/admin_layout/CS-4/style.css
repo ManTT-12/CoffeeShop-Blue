@@ -1,0 +1,44 @@
+* {
+    margin: 0 auto;
+}
+
+.form {
+    max-width: 383px;
+    border: 1px solid rosybrown;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 10px;
+    position: relative;
+    background-color: antiquewhite;
+}
+
+h2 {
+    text-transform: uppercase;
+}
+
+#add {
+    justify-content: center;
+}
+
+.form input {
+    width: 100%;
+    padding: 4px 2px;
+    /* border-radius: 8px; */
+}
+
+.clearfix {
+    /* content: "";*/
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    font-weight: bolder;
+    width: 40%;
+    height: 100%;
+    border-radius: 5px;
+    color: brown;
+    border: 2px rosybrown solid;
+    background-color: rgba(255, 182, 193, 0.452);
+}
