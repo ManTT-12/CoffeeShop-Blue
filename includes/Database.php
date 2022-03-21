@@ -18,11 +18,11 @@ class Database extends PDO
 
     public static function table($table) 
     {
-        $host = config("mysql_host"); 
-        $port = config("mysql_port");
-        $username = config("mysql_username");
-        $password = config("mysql_password");
-        $database = config("mysql_database");
+        $host = MYSQL_HOST; 
+        $port = MYSQL_PORT;
+        $username = MYSQL_USERNAME;
+        $password = MYSQL_PASSWORD;
+        $database = MYSQL_DATABASE;
 
         $connect = 'mysql:host=' . $host . ';port=' . $port . ';dbname=' . $database;
 

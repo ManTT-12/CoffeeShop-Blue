@@ -12,3 +12,9 @@ define("MYSQL_DATABASE", "coffeeshop");
 
 // Api
 define("API_URL", "http://localhost/api/v1/");
+
+// access token
+define("ACCESS_TOKEN", "");
+
+// coffee image path
+define("COFFEE_IMAGE_PATH", "");
