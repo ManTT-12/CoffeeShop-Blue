@@ -1,3 +1,5 @@
 
 # ignore file and folder
 env.php
+
+public/images/
