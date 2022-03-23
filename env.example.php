@@ -11,10 +11,10 @@ define("MYSQL_PASSWORD", "");
 define("MYSQL_DATABASE", "coffeeshop");
 
 // Api
-define("API_URL", "http://localhost/api/v1/");
+define("API_URL", "http://127.0.0.1:8000/api/v1/");
 
 // access token
 define("ACCESS_TOKEN", "");
 
 // coffee image path
-define("COFFEE_IMAGE_PATH", "");
+define("COFFEE_IMAGE_PATH", "/coffeeshop/public/images/coffees/");

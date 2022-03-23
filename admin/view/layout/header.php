@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?=$title ?? "Admin"?></title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     
     <!-- Bootstrap Library -->
@@ -14,7 +15,15 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <title><?=$title?></title>
+
+    <!-- Jquery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- Datatable Jquery -->
+    <script src="http://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <!-- Axios Library -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <input type="checkbox" id="nav-toggle">
@@ -55,6 +64,9 @@
             </ul>
         </div>
     </div>
+    <input type="hidden" id="api-url" value="<?=API_URL?>">
+    <input type="hidden" id="access-token" value="<?=ACCESS_TOKEN?>">
+    <input type="hidden" id="coffee-image-path" value="<?=COFFEE_IMAGE_PATH?>">
     <div class="main-content">
         <header>
             <h2>
