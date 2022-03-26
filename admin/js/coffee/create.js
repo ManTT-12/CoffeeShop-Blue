@@ -20,8 +20,10 @@ function addNewCoffee(e)
         data: formData
     }).then(function (response) {
         //handle success
-        $('#create-coffee-title-message').text(response.data.message);
-
+        if (response.status == 201) {
+            coffeeCreateForm.find("input[type=text], input[type=file], textarea, select").val("");
+            $('#create-coffee-title-message').text(response.data.message);
+        }
     }).catch(function (error) {
         // handle error
         const code = error.response.status;
@@ -32,10 +34,8 @@ function addNewCoffee(e)
             for (const key in errors) {
                 $('#create-coffee-' + key + '-error').text(errors[key][0]);
             }
-        }
-        
+        }  
     });
-    
 }
 
 $('#coffee-create-form').on('submit', addNewCoffee);
