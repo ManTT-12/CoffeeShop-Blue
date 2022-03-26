@@ -1,0 +1,31 @@
+#coffee-type-details-title {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#coffee-type-details-info {
+    padding: 10px 50px;
+}
+
+#coffee-type-details-info .form-group{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#coffee-type-details-info .form-group span{
+    font-weight: normal;
+}
+
+.coffee-type-detail-image-card {
+    text-align: center;
+}
+
+#coffee-type-details-image {
+    width: 300px;
+    height: 300px;
+    outline: 0;
+}
+
+#coffee-type-details-description {
+    font-weight: normal;
+}

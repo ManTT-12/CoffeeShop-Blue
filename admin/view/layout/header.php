@@ -34,16 +34,24 @@
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="#"><span class="las la-igloo"></span>
+                    <a href="<?=APP_URL?>admin/"><span class="las la-igloo"></span>
                     <span>Dashboard</span></a>
                 </li>
                 <li>
-                    <a href="#"><span class="las la-users"></span>
-                    <span>Customers</span></a>
+                    <a href="<?=APP_URL?>admin/coffee.php"><span class="las la-clipboard-list"></span>
+                    <span>Coffees</span></a>
                 </li>
                 <li>
-                    <a href="#"><span class="las la-clipboard-list"></span>
-                    <span>Projects</span></a>
+                    <a href="<?=APP_URL?>admin/coffee-brand.php"><span class="las la-clipboard-list"></span>
+                    <span>Coffee Brands</span></a>
+                </li>
+                <li>
+                    <a href="<?=APP_URL?>admin/coffee-type.php"><span class="las la-clipboard-list"></span>
+                    <span>Coffee Types</span></a>
+                </li>
+                <li>
+                    <a href="<?=APP_URL?>admin/"><span class="las la-users"></span>
+                    <span>Customers</span></a>
                 </li>
                 <li>
                     <a href="#"><span class="las la-shopping-bag"></span>

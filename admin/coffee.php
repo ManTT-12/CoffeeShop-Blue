@@ -1,6 +1,7 @@
 <?php
 
 require_once('../env.php');
+require_once('../includes/Database.php');
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -12,6 +13,8 @@ if (isset($_GET['action'])) {
             break;
         case 'create':
             $title = 'Coffee - Create';
+            $coffee_brands = Database::table('coffee_brands')->get();
+            $coffee_types = Database::table('coffee_types')->get();
             require_once('view/coffee/create.php');
             break;
         case 'details':
@@ -25,6 +28,8 @@ if (isset($_GET['action'])) {
             break;
         case 'edit':
             $title = 'Coffee - Edit';
+            $coffee_brands = Database::table('coffee_brands')->get();
+            $coffee_types = Database::table('coffee_types')->get();
             require_once('view/coffee/details.php');
             break;
         default:

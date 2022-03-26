@@ -27,9 +27,13 @@
                 <label for="create-coffee-type">Type:</label>
                 <select id="create-coffee-type" name="type">
                     <option value="">----------------Choose a type----------------</option>
-                    <option value="1">Example 1</option>
-                    <option value="2">Example 2</option>
-                    <option value="3">Example 3</option>
+                    <?php 
+                    foreach ($coffee_types as $key => $value) {
+                        ?>
+                        <option value="<?=$value['id']?>"><?=$value['name']?></option>
+                        <?php
+                    }
+                    ?>
                 </select>
                 <span class="create-coffee-error" id="create-coffee-type-error"></span>
             </div>
@@ -37,9 +41,13 @@
                 <label for="create-coffee-brand">Brand:</label>
                 <select id="create-coffee-brand" name="brand">
                     <option value="">----------------Choose a brand----------------</option>
-                    <option value="1">Example 1</option>
-                    <option value="2">Example 2</option>
-                    <option value="3">Example 3</option>
+                    <?php 
+                    foreach ($coffee_brands as $key => $value) {
+                        ?>
+                        <option value="<?=$value['id']?>"><?=$value['name']?></option>
+                        <?php
+                    }
+                    ?>
                 </select>
                 <span class="create-coffee-error" id="create-coffee-brand-error"></span>
             </div>

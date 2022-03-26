@@ -16,8 +16,8 @@ axios.get(API_URL + 'admin/coffees/' + COFFEE_ID, {
         $('#coffee-details-name').text(data.name);
         $('#coffee-details-status').text(data.status ? 'Activated' : 'Unactivated');
         $('#coffee-details-price').text(data.price + '$');
-        $('#coffee-details-type').text(data.type);
-        $('#coffee-details-brand').text(data.brand);
+        $('#coffee-details-type').text(data.coffee_type.name);
+        $('#coffee-details-brand').text(data.coffee_brand.name);
         $('#coffee-details-description').text(data.description);
         $('#coffee-details-created_at').text(data.created_at);
         $('#coffee-details-updated_at').text(data.updated_at);

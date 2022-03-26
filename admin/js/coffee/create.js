@@ -21,6 +21,7 @@ function addNewCoffee(e)
     }).then(function (response) {
         //handle success
         if (response.status == 201) {
+            coffeeCreateForm.find('.create-coffee-error').text('');
             coffeeCreateForm.find("input[type=text], input[type=file], textarea, select").val("");
             $('#create-coffee-title-message').text(response.data.message);
         }
@@ -38,4 +39,4 @@ function addNewCoffee(e)
     });
 }
 
-$('#coffee-create-form').on('submit', addNewCoffee);
+coffeeCreateForm.on('submit', addNewCoffee);
