@@ -10,40 +10,41 @@
     --button-color: rgba(240, 136, 159, 0.493);
 }
 
-#header_name {
+#create-coffee-title {
     color: rgb(180, 72, 96);
     padding: 5px;
+    text-align: center;
 }
 
-h2 {
+#create-coffee-title h2 {
     text-transform: uppercase;
     text-align: center;
 }
 
-.form {
-    max-width: 383px;
+#create-coffee-title #create-coffee-title-message {
+    color: green;
+}
+
+#coffee-create-form {
+    max-width: 600px;
     border: 3px solid var(--main-color);
-    padding: 20px;
+    padding: 10px;
     margin: 0 auto;
     border-radius: 10px;
     position: relative;
     background-color: var(--background-color);
 }
 
-.form input {
-    width: 100%;
-    padding: 4px 2px;
-}
-
 .clearfix {
     padding-top: 10px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 button {
     font-weight: bolder;
     width: 40%;
+    padding: 10px;
     height: 100%;
     border-radius: 5px;
     color: brown;
@@ -54,4 +55,17 @@ button {
 button:hover {
     color: white;
     background-color: crimson;
+    cursor: pointer;
+}
+
+#coffee-create-form input, #coffee-create-form select, #coffee-create-form textarea {
+    width: 100%;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.create-coffee-error {
+    color:red;
+    font-size: 13px;
+    padding-left: 4px;
 }

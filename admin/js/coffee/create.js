@@ -1,97 +1,41 @@
 const ACCESS_TOKEN = $('#access-token').val();
 const API_URL = $('#api-url').val();
-const url1 = API_URL + 'admin/coffees/';
-axios({
-        headers: {
-            'Authorization': 'Bearer ' + ACCESS_TOKEN,
-            'Content-Type': 'multipart/form-data',
-        },
+
+const coffeeCreateForm = $('#coffee-create-form');
+
+function addNewCoffee(e)
+{
+    e.preventDefault();
+
+    $('#create-coffee-title-message').text('');
+
+    const formData = new FormData(coffeeCreateForm[0]);
+
+    axios({
         method: 'post',
-        url: url1,
-        data: {
-            coffeename: 'coffee',
-        }
-    })
-    .then(function(response) {
+        url: API_URL + 'admin/coffees/',
+        headers: {
+            'Authorization': 'Bearer ' + ACCESS_TOKEN
+        }, 
+        data: formData
+    }).then(function (response) {
         //handle success
-        console.log(response);
-        alert("Thêm Thành công");
-    }).catch(function(error) {
+        $('#create-coffee-title-message').text(response.data.message);
+
+    }).catch(function (error) {
         // handle error
-        console.log(error);
+        const code = error.response.status;
+
+        if (code == 400) {
+            coffeeCreateForm.find('.create-coffee-error').text('');
+            const errors = error.response.data.data;
+            for (const key in errors) {
+                $('#create-coffee-' + key + '-error').text(errors[key][0]);
+            }
+        }
+        
     });
-// const axios = require('axios');
-// const url = "http://127.0.0.1:8000/api/v1/admin/coffees";
-// const data = document.querySelector('form');
-// let formData = new FormData(data);
+    
+}
 
-// function handFormSubmit() {
-//     axios.post(url, formData, {
-//             headers: {
-//                 'Content-Type': 'multipart/form-data'
-//             }
-//         })
-//         .then(function(response) {
-//             //handle success
-//             console.log(response);
-//             alert('Đã thêm thành công')
-//         })
-//         .catch(function(response) {
-//             //handle error
-//             console.log(response);
-//         });
-// }
-// // function handFormSubmit() {
-// //     axios.post(url, formData, {
-// //             headers: {
-// //                 'Content-Type': 'multipart/form-data'
-// //             }
-// //         })
-// //         .then(function(response) {
-// //             //handle success
-// //             console.log(response);
-// //             alert('Đã thêm thành công')
-// //         })
-// //         .catch(function(response) {
-// //             //handle error
-// //             console.log(response);
-// //         });
-// // }
-// // const data = document.getElementById('add_form');
-// // const formData = new FormData(data);
-
-// // formData.append('coffeename', 'coffee');
-// // import axios from "axios";
-// // const API_URL = "http://127.0.0.1:8000/api/v1/admin/coffees";
-// // const COFFEE = document.querySelector('add_form');
-// // const formData = new FormData(COFFEE);
-// // formData.append('name', $('name'));
-
-// // COFFEE.onsubmit = () => axios.post(API_URL, formData, {
-// //         headers: {
-// //             'Content-Type': 'multipart/form-data'
-// //         }
-// //     }).then(function(response) {
-// //         //handle success
-// //         console.log(response);
-// //         alert('Đã thêm thành công');
-
-// //     })
-// //     .catch(function(error) {
-// //         // handle error
-// //         console.log(error);
-// //     })
-// //     // axios.post(API_URL, formData, {
-// //     //         // headers: {
-// //     //         //     'Content-Type': 'multipart/form-data'
-// //     //         // }
-// //     //     }).then(function(response) {
-// //     //         //handle success
-// //     //         console.log(response);
-// //     //         alert('Đã thêm thành công');
-
-// // //     })
-// // //     .catch(function(error) {
-// // //         // handle error
-// // //         console.log(error);
-// // //     });
+$('#coffee-create-form').on('submit', addNewCoffee);
