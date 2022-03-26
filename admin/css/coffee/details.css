@@ -3,6 +3,11 @@
     text-align: center;
 }
 
+#coffee-details-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
 #coffee-details-info {
     padding: 10px 50px;
 }

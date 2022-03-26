@@ -2,6 +2,13 @@
 <!-- Start Content -->
 <link rel="stylesheet" href="css/coffee/details.css">
 <div>
+    <div id="coffee-details-actions">
+        <a class="btn btn-primary" href="<?=APP_URL?>admin/coffee.php">Back</a>
+        <div>
+            <a class="btn btn-warning" href="<?=APP_URL?>admin/coffee.php?action=edit&id=<?=$coffee_details_id?>" >Edit</a>
+            <button id="coffee-details-delete-action" class="btn btn-danger">Delete</button>
+        </div>
+    </div>
     <h3 id="coffee-details-title">Coffee Id</h3>
     <div id="coffee-details-info">
         <input type="hidden" id="coffee-details-id" value=<?=$coffee_details_id?>>

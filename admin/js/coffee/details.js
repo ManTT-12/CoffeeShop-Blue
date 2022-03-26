@@ -1,3 +1,4 @@
+const APP_URL = $('#app-url').val();
 const API_URL = $('#api-url').val();
 const ACCESS_TOKEN = $('#access-token').val();
 const COFFEE_IMAGE_PATH = $('#coffee-image-path').val();
@@ -27,3 +28,26 @@ axios.get(API_URL + 'admin/coffees/' + COFFEE_ID, {
     // handle error
     console.log(error);
 });
+
+function coffeeDetailsDelete()
+{
+    if(confirm('Do you want to delete this product?')) {
+        axios({
+            method: 'delete',
+            url: API_URL + 'admin/coffees/' + COFFEE_ID,
+            headers: {
+                'Authorization': 'Bearer ' + ACCESS_TOKEN
+            }
+        }).then(function (response) {
+            //handle success
+            if (response.status == 200) {
+                window.location = APP_URL + 'admin/coffee-brand.php';
+            }
+        }).catch(function (error) {
+            // handle error
+            console.log(error);
+        });
+    }
+}
+
+$('#coffee-details-delete-action').on('click', coffeeDetailsDelete);

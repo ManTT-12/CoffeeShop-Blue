@@ -72,6 +72,7 @@
             </ul>
         </div>
     </div>
+    <input type="hidden" id="app-url" value="<?=APP_URL?>">
     <input type="hidden" id="api-url" value="<?=API_URL?>">
     <input type="hidden" id="access-token" value="<?=ACCESS_TOKEN?>">
     <input type="hidden" id="coffee-image-path" value="<?=COFFEE_IMAGE_PATH?>">

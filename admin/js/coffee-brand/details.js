@@ -1,3 +1,4 @@
+const APP_URL = $('#app-url').val();
 const API_URL = $('#api-url').val();
 const ACCESS_TOKEN = $('#access-token').val();
 const COFFEE_BRAND_ID = $('#coffee-brand-details-id').val();
