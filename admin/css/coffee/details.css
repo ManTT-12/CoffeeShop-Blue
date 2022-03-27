@@ -1,11 +1,18 @@
 #coffee-details-title {
     margin-top: 20px;
     text-align: center;
+    color: red;
 }
 
 #coffee-details-actions {
     display: flex;
     justify-content: space-between;
+}
+
+#coffee-details-content {
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 #coffee-details-info {

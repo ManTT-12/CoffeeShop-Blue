@@ -35,7 +35,9 @@ function addNewCoffee(e)
             for (const key in errors) {
                 $('#create-coffee-' + key + '-error').text(errors[key][0]);
             }
-        }  
+        } else if (code == 404) {
+            $('#create-coffee-title-message').text(response.data.message);
+        }
     });
 }
 

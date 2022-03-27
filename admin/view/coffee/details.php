@@ -1,7 +1,7 @@
 <?php require_once('view/layout/header.php'); ?>
 <!-- Start Content -->
 <link rel="stylesheet" href="css/coffee/details.css">
-<div>
+<div id="coffee-details-content">
     <div id="coffee-details-actions">
         <a class="btn btn-primary" href="<?=APP_URL?>admin/coffee.php">Back</a>
         <div>
@@ -9,7 +9,7 @@
             <button id="coffee-details-delete-action" class="btn btn-danger">Delete</button>
         </div>
     </div>
-    <h3 id="coffee-details-title">Coffee Id</h3>
+    <h3 id="coffee-details-title">COFFEE ID</h3>
     <div id="coffee-details-info">
         <input type="hidden" id="coffee-details-id" value=<?=$coffee_details_id?>>
         <div class="form-group coffee-detail-image-card">

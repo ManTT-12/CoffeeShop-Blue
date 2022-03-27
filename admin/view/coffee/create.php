@@ -2,9 +2,12 @@
 <!-- Start Content -->
 <link rel="stylesheet" href="css/coffee/create.css">
 <div>
+    <div>
+        <a class="btn btn-primary" href="<?=APP_URL?>admin/coffee.php">Back</a>
+    </div>
     <form method="post" class="form" id="coffee-create-form" action="" enctype="multipart/form-data">
         <div id="create-coffee-title">
-            <h2>Add New Coffee</h2>
+            <h2>ADD NEW COFFEE</h2>
             <span id="create-coffee-title-message"></span>
         </div>
         <div style="margin-top: 20px">

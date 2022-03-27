@@ -24,6 +24,12 @@ if (isset($_GET['action'])) {
                 $coffee_details_id = $_GET['id'];
             }
 
+            $coffee_details = Database::table('coffees')->where([['id', '=', $coffee_details_id]])->first();
+            if(!$coffee_details) {
+                require_once('view/404.php');
+                exit();
+            }
+
             require_once('view/coffee/details.php');
             break;
         case 'edit':
@@ -36,10 +42,16 @@ if (isset($_GET['action'])) {
                 $coffee_edit_id = $_GET['id'];
             }
             
+            $coffee_edit = Database::table('coffees')->where([['id', '=', $coffee_edit_id]])->first();
+            if(!$coffee_edit) {
+                require_once('view/404.php');
+                exit();
+            }
+
             require_once('view/coffee/edit.php');
             break;
         default:
-            require_once('../view/404.php');
+            require_once('view/404.php');
             break;
     }
 

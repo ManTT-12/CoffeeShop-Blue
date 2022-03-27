@@ -12,7 +12,7 @@ axios.get(API_URL + 'admin/coffees/' + COFFEE_ID, {
     //handle success
     if (response.data.code == 200) {
         const data = response.data.data;
-        $('#coffee-details-title').text('Coffee Id ' + data.id);
+        $('#coffee-details-title').text('COFFEE ID ' + data.id);
         $('#coffee-details-image').attr('src', COFFEE_IMAGE_PATH + data.image);
         $('#coffee-details-name').text(data.name);
         $('#coffee-details-status').text(data.status ? 'Activated' : 'Unactivated');
@@ -22,7 +22,6 @@ axios.get(API_URL + 'admin/coffees/' + COFFEE_ID, {
         $('#coffee-details-description').text(data.description);
         $('#coffee-details-created_at').text(data.created_at);
         $('#coffee-details-updated_at').text(data.updated_at);
-        
     }
 }).catch(function (error) {
     // handle error
@@ -41,7 +40,8 @@ function coffeeDetailsDelete()
         }).then(function (response) {
             //handle success
             if (response.status == 200) {
-                window.location = APP_URL + 'admin/coffee-brand.php';
+                alert(response.data.message);
+                window.location = APP_URL + 'admin/coffee.php';
             }
         }).catch(function (error) {
             // handle error
