@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=$title ?? "Admin"?></title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    
+
     <!-- Bootstrap Library -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
+
     <!-- Datatable Jquery-->
     <link rel="stylesheet" href="http://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 
@@ -18,9 +18,8 @@
 
     <!-- Jquery Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
-    <!-- Datatable Jquery -->
-    <script src="http://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+
 
     <!-- Axios Library -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
