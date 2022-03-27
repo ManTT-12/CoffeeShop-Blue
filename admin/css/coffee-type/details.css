@@ -1,6 +1,18 @@
 #coffee-type-details-title {
     margin-top: 20px;
     text-align: center;
+    color: red;
+}
+
+#coffee-type-details-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+#coffee-type-details-content {
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 #coffee-type-details-info {

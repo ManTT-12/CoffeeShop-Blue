@@ -2,7 +2,10 @@
 <!-- Start Content -->
 <link rel="stylesheet" href="css/coffee-type/create.css">
 <div>
-    <form method="post" class="form" id="coffee-type-create-form" action="" enctype="multipart/form-data">
+    <div>
+        <a class="btn btn-primary" href="<?=APP_URL?>admin/coffee-type.php">Back</a>
+    </div>
+    <form class="form" id="coffee-type-create-form" action="" >
         <div id="create-coffee-type-title">
             <h2>Add New Coffee Type</h2>
             <span id="create-coffee-type-title-message"></span>

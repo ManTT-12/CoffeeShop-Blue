@@ -5,7 +5,7 @@
     <div>
         <a class="btn btn-primary" href="<?=APP_URL?>admin/coffee-brand.php">Back</a>
     </div>
-    <form method="post" class="form" id="coffee-brand-create-form" action="" enctype="multipart/form-data">
+    <form class="form" id="coffee-brand-create-form" action="">
         <div id="create-coffee-brand-title">
             <h2>Add New Coffee Brand</h2>
             <span id="create-coffee-brand-title-message"></span>

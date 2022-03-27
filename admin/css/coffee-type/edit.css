@@ -1,0 +1,71 @@
+* {
+    margin: 0 auto;
+}
+
+:root {
+    --main-color: #DD2F6E;
+    --color-dark: #1D2231;
+    --text-grey: #8390A2;
+    --background-color: mistyrose;
+    --button-color: rgba(240, 136, 159, 0.493);
+}
+
+#edit-coffee-type-title {
+    color: rgb(180, 72, 96);
+    padding: 5px;
+    text-align: center;
+}
+
+#edit-coffee-type-title h2 {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#edit-coffee-type-title #edit-coffee-type-title-message {
+    color: green;
+}
+
+#coffee-type-edit-form {
+    max-width: 600px;
+    border: 3px solid var(--main-color);
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 10px;
+    position: relative;
+    background-color: var(--background-color);
+}
+
+#coffee-type-edit-form .clearfix {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#coffee-type-edit-form button {
+    font-weight: bolder;
+    width: 40%;
+    padding: 10px;
+    height: 100%;
+    border-radius: 5px;
+    color: brown;
+    border: 2px var(--main-color);
+    background-color: var(--button-color)
+}
+
+#coffee-type-edit-form button:hover {
+    color: white;
+    background-color: crimson;
+    cursor: pointer;
+}
+
+#coffee-type-edit-form input, #coffee-type-edit-form select, #coffee-type-edit-form textarea {
+    width: 100%;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.edit-coffee-type-error {
+    color:red;
+    font-size: 13px;
+    padding-left: 4px;
+}

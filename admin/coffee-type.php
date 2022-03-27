@@ -22,14 +22,31 @@ if (isset($_GET['action'])) {
                 $coffee_type_details_id = $_GET['id'];
             }
 
+            $coffee_type_details = Database::table('coffee_types')->where([['id', '=', $coffee_type_details_id]])->first();
+            if(!$coffee_type_details) {
+                require_once('view/404.php');
+                exit();
+            }
+
             require_once('view/coffee-type/details.php');
             break;
         case 'edit':
             $title = 'Coffee Type - Edit';
-            require_once('view/coffee-type/details.php');
+            $coffee_type_edit_id='';
+            if (isset($_GET['id'])) {
+                $coffee_type_edit_id = $_GET['id'];
+            }
+
+            $coffee_type_edit = Database::table('coffee_types')->where([['id', '=', $coffee_type_edit_id]])->first();
+            if(!$coffee_type_edit) {
+                require_once('view/404.php');
+                exit();
+            }
+
+            require_once('view/coffee-type/edit.php');
             break;
         default:
-            require_once('../view/404.php');
+            require_once('view/404.php');
             break;
     }
 } else {
