@@ -1,8 +1,15 @@
 <?php require_once('view/layout/header.php'); ?>
 <!-- Start Content -->
 <link rel="stylesheet" href="css/coffee-brand/details.css">
-<div>
-    <h3 id="coffee-brand-details-title">Coffee Brand Id</h3>
+<div id="coffee-brand-details-content">
+    <div id="coffee-brand-details-actions">
+        <a class="btn btn-primary" href="<?=APP_URL?>admin/coffee-brand.php">Back</a>
+        <div>
+            <a class="btn btn-warning" href="<?=APP_URL?>admin/coffee-brand.php?action=edit&id=<?=$coffee_brand_details_id?>" >Edit</a>
+            <button id="coffee-brand-details-delete-action" class="btn btn-danger">Delete</button>
+        </div>
+    </div>
+    <h3 id="coffee-brand-details-title">COFFEE BRAND ID</h3>
     <div id="coffee-brand-details-info">
         <input type="hidden" id="coffee-brand-details-id" value=<?=$coffee_brand_details_id?>>
         <div class="form-group">

@@ -3,6 +3,17 @@
     text-align: center;
 }
 
+#coffee-brand-details-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+#coffee-brand-details-content {
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 10px;
+}
+
 #coffee-brand-details-info {
     padding: 10px 50px;
 }

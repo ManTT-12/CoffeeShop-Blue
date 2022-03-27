@@ -10,22 +10,22 @@
     --button-color: rgba(240, 136, 159, 0.493);
 }
 
-#create-coffee-brand-title {
+#edit-coffee-brand-title {
     color: rgb(180, 72, 96);
     padding: 5px;
     text-align: center;
 }
 
-#create-coffee-brand-title h2 {
+#edit-coffee-brand-title h2 {
     text-transform: uppercase;
     text-align: center;
 }
 
-#create-coffee-brand-title #create-coffee-brand-title-message {
+#edit-coffee-brand-title #edit-coffee-brand-title-message {
     color: green;
 }
 
-#coffee-brand-create-form {
+#coffee-brand-edit-form {
     max-width: 600px;
     border: 3px solid var(--main-color);
     padding: 10px;
@@ -35,13 +35,13 @@
     background-color: var(--background-color);
 }
 
-#coffee-brand-create-form .clearfix {
+#coffee-brand-edit-form .clearfix {
     padding-top: 10px;
     display: flex;
     justify-content: center;
 }
 
-#coffee-brand-create-form button {
+#coffee-brand-edit-form button {
     font-weight: bolder;
     width: 40%;
     padding: 10px;
@@ -52,19 +52,19 @@
     background-color: var(--button-color)
 }
 
-#coffee-brand-create-form button:hover {
+#coffee-brand-edit-form button:hover {
     color: white;
     background-color: crimson;
     cursor: pointer;
 }
 
-#coffee-brand-create-form input, #coffee-brand-create-form select, #coffee-brand-create-form textarea {
+#coffee-brand-edit-form input, #coffee-brand-edit-form select, #coffee-brand-edit-form textarea {
     width: 100%;
     padding: 4px;
     border-radius: 5px;
 }
 
-.create-coffee-brand-error {
+.edit-coffee-brand-error {
     color:red;
     font-size: 13px;
     padding-left: 4px;
