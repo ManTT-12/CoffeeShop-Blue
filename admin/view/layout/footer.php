@@ -10,13 +10,23 @@
 
     <!-- JS -->
     <script type="text/javascript">
-        let buttons = document.querySelectorAll('.sidebar-menu li a');
-        buttons.forEach(a => {
-            a.addEventListener('click', function () {
-                buttons.forEach(btn =>btn.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
+        // let buttons = document.querySelectorAll('.sidebar-menu li a');
+        // buttons.forEach(a => {
+        //     a.addEventListener('click', function () {
+        //         buttons.forEach(btn =>btn.classList.remove('active'));
+        //         this.classList.add('active');
+        //     });
+        // });
+
+        const currentLocation = location.href;
+        const menuItem = document.querySelectorAll('.sidebar-menu li a');
+        const menuLength = menuItem.length;
+        for(let i =0; i< menuLength; i++){
+            if(menuItem[i].href ===currentLocation){
+                menuItem[i].classList.add('active');
+            }
+        }
+
     </script>
 </body>
 </html>
