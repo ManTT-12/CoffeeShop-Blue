@@ -56,5 +56,29 @@
         </ul>
     </div>
 
+    <div class="search-bar" >
+        <div class="search-info">
+            <div class="search-wrapper bottom">
+                <span class="las la-search"></span>
+                <input type="search" placeholder="Search here" class="input-search">
+            </div>
+            <button onclick="myFunction()" class="drop-down">Advanced Search</button>
+        </div>
+        <div class="filter">
+            <div class="row">
+                <span style="margin-right: 5px">Type:</span> <select name="coffee-type" id="" ><option>All Brand</option></select>
+                <span style="margin: 0 5px 0 20px">Brand:</span> <select name="coffee-brand" id="" ><option>All Brand</option></select>
+            </div>
+            <div class="row">
+                <span style="margin-right: 5px">Date From:</span> <input type="date">
+                <span style="margin: 0 5px 0 20px">To:</span> <input type="date">
+            </div>
+            <div class="row">
+                <span style="margin-right: 5px">Price From:</span> <input type="number">
+                <span style="margin: 0 5px 0 20px">To:</span> <input type="number">
+            </div>
+        </div>
+    </div>
+
     <div id="main-content">
         <section class="content">
