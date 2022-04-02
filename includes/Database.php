@@ -273,4 +273,143 @@ class Database extends PDO
             $sort_str
         ];
     }
+
+    public function paginate($limit = 10)
+    {
+        $currentPage = 1;
+        if (isset($_GET['page'])) {
+            $currentPage = $_GET['page'];
+        }
+
+        $rowPerPage = $limit;
+        $totalRow = $this->count();
+        $totalPage = ceil($totalRow / $rowPerPage);
+
+        list($select_str, $join_str, $condition_str, $condition_data, $sort_str) = $this->additional();
+        $take_str = ' LIMIT ' . $rowPerPage . ' OFFSET ' . $rowPerPage * ($currentPage - 1);
+        $sql = 'SELECT ' . 
+            $select_str . 
+            ' FROM '. 
+            $this->table . 
+            $join_str .
+            $condition_str . 
+            $sort_str . 
+            $take_str . ';';
+
+        $stmt = $this->prepare($sql);
+        $result = $stmt->execute($condition_data);
+        if (!$result) {
+            return false;
+        }
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return new Paginator([
+            'totalPage' => $totalPage, 
+            'currentPage' => $currentPage, 
+            'totalRow' => $totalRow, 
+            'rowPerPage' => $rowPerPage, 
+            'data' => $data
+        ]);
+    }
+}
+
+class Paginator
+{
+    public $totalPage;
+    public $currentPage;
+    public $totalRow;
+    public $rowPerPage;
+    public $data;
+
+    public function __construct($dataArray)
+    {
+        foreach ($dataArray as $key => $value) {
+            $this->$key = $value;
+        }
+    }
+
+    public function link()
+    {
+        $firstPage = 1;
+        $lastPage = $this->totalPage;
+
+        $distance = 5;
+
+        $leftCurrentPage = $firstPage + 1;
+        if ($this->currentPage - $distance > $leftCurrentPage) {
+            $leftCurrentPage = $this->currentPage - $distance;
+        }
+
+        $rightCurrentPage = $lastPage - 1;
+        if ($this->currentPage + $distance < $rightCurrentPage) {
+            $rightCurrentPage = $this->currentPage + $distance;
+        }
+
+        $query = $_SERVER['QUERY_STRING'];
+        if (empty($query)) {
+            $query = '?page=';
+        } else {
+            if (str_contains($query, 'page')) {
+                $query = '?' . preg_replace('/page=[0-9]+/', '', $query) . 'page=';
+            } else {
+                $query = '?' . $query . '&page=';
+            }
+
+        }
+        
+        ?>
+            <nav>
+                <ul class="pagination">
+                <?php
+                    if ($this->currentPage == $firstPage) {
+                        ?>
+                            <li class="page-item disabled"><a class="page-link" tabindex="-1">Previous</a></li>
+                            <li class="page-item disabled"><a class="page-link" tabindex="-1"><?=$firstPage?></a></li>
+                        <?php
+                    } else {
+                        ?>
+                            <li class="page-item"><a class="page-link" href="<?=$query?><?=$this->currentPage - 1?>">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="<?=$query?><?=$firstPage?>"><?=$firstPage?></a></li>
+                        <?php
+                    }
+                    if ($leftCurrentPage > $firstPage + 1) {
+                        ?>
+                            <li class="page-item"><span class="page-link">...</span></li>
+                        <?php
+                    } 
+                    for ($i = $leftCurrentPage; $i <= $this->currentPage - 1; $i++) { 
+                        ?>
+                            <li class="page-item"><a class="page-link" href="<?=$query?><?=$i?>"><?=$i?></a></li>
+                        <?php
+                    }
+                    if ($this->currentPage != $firstPage && $this->currentPage != $lastPage) {
+                        ?>
+                            <li class="page-item disabled"><a class="page-link" tabindex="-1"><?=$this->currentPage?></a></li>
+                        <?php
+                    }
+                    for ($i = $this->currentPage + 1; $i <= $rightCurrentPage; $i++) { 
+                        ?>
+                            <li class="page-item"><a class="page-link" href="<?=$query?><?=$i?>"><?=$i?></a></li>
+                        <?php
+                    }
+                    if ($rightCurrentPage < $lastPage - 1) {
+                        ?>
+                            <li class="page-item"><span class="page-link">...</span></li>
+                        <?php
+                    } 
+                    if ($this->currentPage == $lastPage) {
+                        ?>
+                            <li class="page-item disabled"><a class="page-link" tabindex="-1"><?=$lastPage?></a></li>
+                            <li class="page-item disabled"><a class="page-link" tabindex="-1">Next</a></li>
+                        <?php
+                    } else {
+                        ?>
+                            <li class="page-item"><a class="page-link" href="<?=$query?><?=$lastPage?>"><?=$lastPage?></a></li>
+                            <li class="page-item"><a class="page-link" href="<?=$query?><?=$this->currentPage + 1?>">Next</a></li>
+                        <?php
+                    }
+                    ?>
+                </ul>
+            </nav>
+        <?php
+    }
 }
