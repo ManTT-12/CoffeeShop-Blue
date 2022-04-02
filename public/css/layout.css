@@ -157,7 +157,6 @@
 
 #main-content {
     /* transition: margin-top 75ms; */
-    margin-top: 80px;
     padding: 10px 5px;
     height: 60vh;
     display: flex;
@@ -294,6 +293,7 @@ section {
     width: 100%;
     border: 1px solid var(--manager-button-color);
     background-color: var(--manager-button-color);
+    cursor: pointer;
 }
 
 #signup-button {
@@ -360,6 +360,7 @@ button#user-logout {
     border: none;
     background: transparent;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 button#user-logout:focus {
@@ -432,7 +433,6 @@ button#user-logout:focus {
 }
 
 .search-bar button {
-    margin-left: 30px;
     border: none;
     outline: none;
     background-color: transparent;
@@ -441,15 +441,23 @@ button#user-logout:focus {
     color: green;
 }
 
+.search-bar #search-toggle {
+    margin-left: 30px;
+}
+
 
 .row {
     margin-bottom: 10px;
     margin-left: 10px;
 
 }
-.filter {
+#advanced-search-filter {
      display:none;
      padding: 10px;
+}
+
+#advanced-search-filter input, #advanced-search-filter select {
+    border-radius: 5px;
 }
 
 .show {

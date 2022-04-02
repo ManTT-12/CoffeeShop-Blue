@@ -9,6 +9,9 @@ require_once("includes/Database.php");
 require_once("includes/Session.php");
 Session::init();
 
+$coffee_brands = Database::table('coffee_brands')->get();
+$coffee_types = Database::table('coffee_types')->get();
+
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
     if ($action == 'index') {

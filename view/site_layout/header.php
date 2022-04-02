@@ -40,10 +40,6 @@
                 </li>
                 <li><a href=""><span class="las la-shopping-bag"><span></span>Order</span></a></li>
                 <li><a href=""><span class="las la-user-circle"><span></span>Account</span></a></li>
-                <div class="search-wrapper">
-                    <span class="las la-search"></span>
-                    <input type="search" placeholder="Search here">
-                </div>
             </ul>
         </nav>
     </div>
@@ -54,10 +50,6 @@
             <li><a href=""><span><span></span>Contract</span></a></li>
             <li><a href=""><span class="las la-shopping-bag"><span></span>Order</span></a></li>
             <li><a href=""><span class="las la-user-circle"><span></span>Account</span></a></li>
-            <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="Search here">
-            </div>
         </ul>
     </div>
     <input type="hidden" id="app-url" value="<?=APP_URL?>">
@@ -65,27 +57,51 @@
     <input type="hidden" id="coffee-image-path" value="<?=COFFEE_IMAGE_PATH?>">
 
     <div class="search-bar" >
-        <div class="search-info">
-            <div class="search-wrapper bottom">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="Search here" class="input-search">
+        <form action="<?=APP_URL?>index.php?action=search">
+            <div class="search-info">
+                <div class="search-wrapper bottom">
+                    <button>
+                        <span class="las la-search"></span>
+                    </button>
+                    <input type="search" name="keywords" placeholder="Search here" class="input-search">
+                </div>
+                <button type="button" id="search-toggle" class="drop-down">Advanced Search</button>
             </div>
-            <button onclick="myFunction()" class="drop-down">Advanced Search</button>
-        </div>
-        <div class="filter">
-            <div class="row">
-                <span style="margin-right: 5px">Type:</span> <select name="coffee-type" id="" ><option>All Brand</option></select>
-                <span style="margin: 0 5px 0 20px">Brand:</span> <select name="coffee-brand" id="" ><option>All Brand</option></select>
+            <div class="filter" id="advanced-search-filter">
+                <div class="row">
+                    <span style="margin-right: 5px">Type:</span> 
+                    <select name="coffee-type" id="search-coffee-type" >
+                        <option value="">All Type</option>
+                        <?php
+                        foreach ($coffee_types as $coffee_type) {
+                            ?>
+                            <option value="<?=$coffee_type['id']?>"><?=$coffee_type['name']?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+                    <span style="margin: 0 5px 0 20px">Brand:</span> 
+                    <select name="coffee-brand" id="search-coffee-brand">
+                        <option value="">All Brand</option>
+                        <?php
+                        foreach ($coffee_brands as $coffee_brand) {
+                            ?>
+                            <option value="<?=$coffee_brand['id']?>"><?=$coffee_brand['name']?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="row">
+                    <span style="margin-right: 5px">Date From:</span> <input type="date">
+                    <span style="margin: 0 5px 0 20px">To:</span> <input type="date">
+                </div>
+                <div class="row">
+                    <span style="margin-right: 5px">Price From:</span> <input type="number">
+                    <span style="margin: 0 5px 0 20px">To:</span> <input type="number">
+                </div>
             </div>
-            <div class="row">
-                <span style="margin-right: 5px">Date From:</span> <input type="date">
-                <span style="margin: 0 5px 0 20px">To:</span> <input type="date">
-            </div>
-            <div class="row">
-                <span style="margin-right: 5px">Price From:</span> <input type="number">
-                <span style="margin: 0 5px 0 20px">To:</span> <input type="number">
-            </div>
-        </div>
+        </form>
     </div>
 
     <div id="main-content">

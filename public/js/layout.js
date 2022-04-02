@@ -69,3 +69,13 @@ $('#user-logout').on('click', function () {
         location.reload();
     });
 })
+
+$('#search-toggle').on('click', function (e) {
+    e.preventDefault();
+    $("#advanced-search-filter").toggle();
+    if ($(this).text() == "Advanced Search") {
+        $(this).text("Normal Search");
+    } else {
+        $(this).text("Advanced Search");
+    }
+});
