@@ -218,7 +218,7 @@ section {
 }
 
 #manager__title {
-    height: 10%;
+    height: auto;
     text-align: center;
     border: 1px solid var(--manager-button-color);
     display: flex;
@@ -353,6 +353,17 @@ footer a:hover {
     color: #ffffff;
     background-color: #000;
     border: 1px solid #000;
+}
+
+button#user-logout {
+    color: blue;
+    border: none;
+    background: transparent;
+    text-decoration: underline;
+}
+
+button#user-logout:focus {
+    outline: none;
 }
 
 @media (max-width: 719px) {

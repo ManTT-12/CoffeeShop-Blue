@@ -1,4 +1,5 @@
 <?php require_once('view/site_layout/header.php'); ?>
+<!-- Start Content -->
 <div id="main-name">
     <h2>Drinks</h2>
 </div>
@@ -24,5 +25,6 @@
         </div>
     </div>
 </div>
+<!-- End Content -->
 <?php require_once('view/site_layout/sidebar.php'); ?>
 <?php require_once('view/site_layout/footer.php'); ?>

@@ -11,9 +11,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     <!-- Jquery Library -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js" integrity="sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="public/css/layout.css">
-    <title>Coffee Shop</title>
+
+    <!-- Axios Library -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <title><?=$title ?? 'Coffee Shop'?></title>
 </head>
 
 <body>
@@ -55,6 +60,9 @@
             </div>
         </ul>
     </div>
+    <input type="hidden" id="app-url" value="<?=APP_URL?>">
+    <input type="hidden" id="api-url" value="<?=API_URL?>">
+    <input type="hidden" id="coffee-image-path" value="<?=COFFEE_IMAGE_PATH?>">
 
     <div id="main-content">
         <section class="content">
