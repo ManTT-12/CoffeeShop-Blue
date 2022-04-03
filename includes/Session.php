@@ -27,14 +27,21 @@ class Session
 
     public static function checkAuthUser()
     {
-        if(self::get('login_user') && self::get('login_user') == false) {
+        if(empty(self::get('login_user')) || self::get('login_user') == false) {
             return header('location: ' . APP_URL);
+        }
+    }
+
+    public static function checkLoginUser()
+    {
+        if(self::get('login_user') && self::get('login_user') == true) {
+            return header('location: ' . APP_URL . 'admin/index.php');
         }
     }
 
     public static function checkAuthAdmin()
     {
-        if(self::get('login_admin') && self::get('login_admin') == false) {
+        if(empty(self::get('login_admin')) || self::get('login_admin') == false) {
             return header('location: ' . APP_URL . 'admin/login.php');
         }
     }
@@ -42,7 +49,7 @@ class Session
     public static function checkLoginAdmin()
     {
         if(self::get('login_admin') && self::get('login_admin') == true) {
-            return header('location: ' . APP_URL . 'admin/login.php');
+            return header('location: ' . APP_URL . 'admin/index.php');
         }
     }
 }

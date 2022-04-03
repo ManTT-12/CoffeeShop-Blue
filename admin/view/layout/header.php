@@ -16,6 +16,9 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
+    <!-- JS Cookie -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js" integrity="sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=" crossorigin="anonymous"></script>
+
     <!-- Jquery Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -68,6 +71,10 @@
                     <a href="#"><span class="las la-clipboard"></span>
                     <span>Tasks</span></a>
                 </li>
+                <li>
+                    <button id="admin-logout"><span class="las la-clipboard"></span>
+                    <span>Logout</span></button>
+                </li>
             </ul>
         </div>
     </div>
@@ -89,7 +96,17 @@
             </div>
             <div class="user-wrapper">
                 <div>
-                    <h4>Tuan Tieu</h4>
+                    <?php
+                        if (Session::get('login_admin')) {
+                            ?>
+                                <h4><?=Session::get('login_admin_username')?></h4>
+                            <?php
+                        } else {
+                            ?>
+                                <h4>Admin</h4>
+                            <?php
+                        }
+                    ?>
                     <small>Super admin</small>
                 </div>
             </div>
