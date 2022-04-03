@@ -243,9 +243,46 @@ section {
     flex: 1;
     background-color: rgba(218, 50, 101, 0.274);
     text-align: center;
+    padding: 5px 10px;
+}
+
+.item-title {
     display: flex;
     justify-content: space-between;
-    padding: 5px 10px;
+    align-items: center;
+    margin: 0 -5px;
+}
+
+.item-title-info {
+    display: inline-flex;
+}
+
+.item-title-name {
+    margin: 0 5px;
+}
+
+.item-button-manager {
+    display: flex;
+    align-items: center;
+}
+
+.item-quantity {
+    margin: 0 10px;
+}
+
+.item-amount {
+    width: 40px;
+}
+
+.item-details-brand,
+.item-details-type {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.item-brand-name,
+.item-type-name {
+    margin: 0 5px;
 }
 
 .cart-subtotal,
@@ -422,7 +459,6 @@ button#user-logout:focus {
 }
 
 .search-bar {
-
     margin-top: 75px;
     /* width: calc(60%); */
     background-color: var(--manager-background-color);
@@ -445,23 +481,23 @@ button#user-logout:focus {
     margin-left: 30px;
 }
 
-
 .row {
     margin-bottom: 10px;
     margin-left: 10px;
-
 }
+
 #advanced-search-filter {
-     display:none;
-     padding: 10px;
+    display: none;
+    padding: 10px;
 }
 
-#advanced-search-filter input, #advanced-search-filter select {
+#advanced-search-filter input,
+#advanced-search-filter select {
     border-radius: 5px;
 }
 
 .show {
-    display:block;
+    display: block;
 }
 
 .search-info {
@@ -469,6 +505,7 @@ button#user-logout:focus {
     align-items: center;
     padding: 15px;
 }
+
 .input-search {
     width: 100%;
 }
