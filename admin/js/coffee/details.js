@@ -6,7 +6,8 @@ const COFFEE_ID = $('#coffee-details-id').val();
 
 axios.get(API_URL + 'admin/coffees/' + COFFEE_ID, {
     headers: {
-        'Authorization': 'Bearer ' + ACCESS_TOKEN
+        'Authorization': 'Bearer ' + Cookies.get('admin_token'), 
+        'Access-Control-Allow-Origin': '*'
     }
 }).then(function (response) {
     //handle success

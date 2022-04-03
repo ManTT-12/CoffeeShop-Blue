@@ -15,7 +15,8 @@ function addNewCoffeeBrand(e)
         method: 'post',
         url: API_URL + 'admin/coffee-brands/',
         headers: {
-            'Authorization': 'Bearer ' + ACCESS_TOKEN
+            'Authorization': 'Bearer ' + Cookies.get('admin_token'), 
+            'Access-Control-Allow-Origin': '*'
         }, 
         data: formData
     }).then(function (response) {

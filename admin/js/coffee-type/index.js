@@ -50,7 +50,8 @@ function coffeeTypeDataTable(data) {
 function getCoffeeTypeList () {
     axios.get(API_URL + 'admin/coffee-types/' , {
         headers: {
-            'Authorization': 'Bearer ' + ACCESS_TOKEN
+            'Authorization': 'Bearer ' + Cookies.get('admin_token'), 
+            'Access-Control-Allow-Origin': '*'
         }
     }).then(function (response) {
         // handle success

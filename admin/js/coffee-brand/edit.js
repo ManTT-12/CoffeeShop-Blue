@@ -19,7 +19,8 @@ function editCoffeeBrand(e)
         method: 'put',
         url: API_URL + 'admin/coffee-brands/' + COFFEE_BRAND_ID,
         headers: {
-            'Authorization': 'Bearer ' + ACCESS_TOKEN
+            'Authorization': 'Bearer ' + Cookies.get('admin_token'), 
+            'Access-Control-Allow-Origin': '*'
         }, 
         data: data
     }).then(function (response) {

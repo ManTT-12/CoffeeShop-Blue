@@ -19,7 +19,8 @@ function editCoffeeType(e)
         method: 'put',
         url: API_URL + 'admin/coffee-types/' + COFFEE_TYPE_ID,
         headers: {
-            'Authorization': 'Bearer ' + ACCESS_TOKEN
+            'Authorization': 'Bearer ' + Cookies.get('admin_token'), 
+            'Access-Control-Allow-Origin': '*'
         }, 
         data: data
     }).then(function (response) {

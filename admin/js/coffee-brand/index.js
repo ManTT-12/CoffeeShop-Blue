@@ -10,7 +10,8 @@ function coffeeBrandDelete(e, coffeeBrandId)
             method: 'delete',
             url: API_URL + 'admin/coffee-brands/' + coffeeBrandId,
             headers: {
-                'Authorization': 'Bearer ' + ACCESS_TOKEN
+                'Authorization': 'Bearer ' + Cookies.get('admin_token'), 
+                'Access-Control-Allow-Origin': '*'
             }
         }).then(function (response) {
             //handle success

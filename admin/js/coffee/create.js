@@ -15,7 +15,8 @@ function addNewCoffee(e)
         method: 'post',
         url: API_URL + 'admin/coffees/',
         headers: {
-            'Authorization': 'Bearer ' + ACCESS_TOKEN
+            'Authorization': 'Bearer ' + Cookies.get('admin_token'), 
+            'Access-Control-Allow-Origin': '*'
         }, 
         data: formData
     }).then(function (response) {
