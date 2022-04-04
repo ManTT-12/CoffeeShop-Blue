@@ -6,9 +6,9 @@
         </div>
         <div class="item-button-manager">
             <div class="item-quantity">
-                <div class="item-quantity-plus"><i class="bi bi-plus-lg"></i></div>
-                <input type="number" min="1" step="1" class="item-amount">
-                <div class="item-quantity-minius"><i class="bi bi-dash-lg"></i></div>
+                <button class="item-qty-plus">+</button>
+                <input type="text" value="1" class="item-amount">
+                <button class="item-qty-minius">-</button>
             </div>
             <div class="item-button"><i class="bi bi-x-lg"></i></div>
         </div>

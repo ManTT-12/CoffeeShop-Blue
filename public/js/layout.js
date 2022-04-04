@@ -14,9 +14,28 @@ navMenuIcon.addEventListener('click', function() {
     }
 })
 
+var plus = document.querySelector(".item-qty-plus");
+var minus = document.querySelector(".item-qty-minius");
+var qty = document.querySelector(".item-amount");
+let count = 1;
+plus.onclick = () => {
+    if (count < 50) {
+        count++;
+    }
+    console.log(count);
+    qty.value = count;
+}
+minus.onclick = () => {
+    if (count > 1) {
+        count--;
+    } else if (count == 1) {
+        count = 1;
+    }
+    console.log(count);
+    qty.value = count;
+}
 
-
-$('#login-signup-form').on('submit', function (e) {
+$('#login-signup-form').on('submit', function(e) {
     e.preventDefault();
     $('#login-title-message').text('');
 
@@ -26,9 +45,9 @@ $('#login-signup-form').on('submit', function (e) {
         url: API_URL + 'login',
         headers: {
             'Access-Control-Allow-Origin': '*'
-        }, 
+        },
         data: formData
-    }).then(function (response) {
+    }).then(function(response) {
         //handle success
         if (response.status == 200) {
             Cookies.set('token', response.data.data.access_token);
@@ -40,7 +59,7 @@ $('#login-signup-form').on('submit', function (e) {
                 location.reload();
             });
         }
-    }).catch(function (error) {
+    }).catch(function(error) {
         // handle error
         $('.login-error').text('');
 
@@ -48,7 +67,7 @@ $('#login-signup-form').on('submit', function (e) {
         if (status == 400) {
             const data = error.response.data.data;
             const message = error.response.data.message;
-            
+
             if (data.length > 0) {
                 for (const key in data) {
                     $('#login-' + key + '-error').text(data[key]);
@@ -60,7 +79,7 @@ $('#login-signup-form').on('submit', function (e) {
     });
 })
 
-$('#user-logout').on('click', function () {
+$('#user-logout').on('click', function() {
     $.ajax({
         url: APP_URL + 'login.php?action=logout',
         method: "post",
@@ -70,7 +89,7 @@ $('#user-logout').on('click', function () {
     });
 })
 
-$('#search-toggle').on('click', function (e) {
+$('#search-toggle').on('click', function(e) {
     e.preventDefault();
     $("#advanced-search-filter").toggle();
     if ($(this).text() == "Advanced Search") {
