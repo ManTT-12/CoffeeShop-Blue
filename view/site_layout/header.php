@@ -24,32 +24,43 @@
 <body>
     <div id="navbar">
         <div id="navbar-brand">
-            <h2><a href=""><span class="lab la-accusoft"><span></span>Coffee Shop</span></a></h2>
+            <h2><a href=""><span class="lab la-accusoft"></span><span>Coffee Shop</span></a></h2>
         </div>
-        <div id="nav-menu-icon">
+        <label for="nav-mobile-togger" id="nav-mobile-btn">
             <span class="las la-bars"></span>
-        </div>
+        </label>
         <nav id="navbar-menu">
             <ul>
-                <li><a href=""><span><span></span>Product</span></a></li>
+                <li><a href=""><span>Product</span></a></li>
                 <li>
-                    <a href=""><span><span></span>About</span></a>
+                    <a href=""><span>About</span></a>
                 </li>
                 <li>
-                    <a href=""><span><span></span>Contract</span></a>
+                    <a href=""><span>Contract</span></a>
                 </li>
-                <li><a href=""><span class="las la-shopping-bag"><span></span>Order</span></a></li>
-                <li><a href=""><span class="las la-user-circle"><span></span>Account</span></a></li>
+                <li><a href=""><span class="las la-shopping-bag"></span><span>Order</span></a></li>
+                <li><a href=""><span class="las la-user-circle"></span><span>Account</span></a></li>
             </ul>
         </nav>
     </div>
-    <div id="nav-short-menu">
-        <ul>
-            <li><a href=""><span><span></span>Product</span></a></li>
-            <li><a href=""><span><span></span>About</span></a></li>
-            <li><a href=""><span><span></span>Contract</span></a></li>
-            <li><a href=""><span class="las la-shopping-bag"><span></span>Order</span></a></li>
-            <li><a href=""><span class="las la-user-circle"><span></span>Account</span></a></li>
+    <input type="checkbox" hidden id="nav-mobile-togger">
+    <label for="nav-mobile-togger" id="nav-overlay"></label>
+    <!-- nav-mobile -->
+    <div id="nav-mobile">
+        <div id="nav-mobile-brand">
+            <h2 id="brand-name"><a href=""><span class="lab la-accusoft"></span><span>Coffee Shop</span></a></h2>
+            <label for="nav-mobile-togger" id="nav-mobile-close">X</label>
+        </div>
+        <ul id="nav-mobile-menu">
+            <li><a href=""><span>Product</span></a></li>
+            <li>
+                <a href=""><span>About</span></a>
+            </li>
+            <li>
+                <a href=""><span>Contract</span></a>
+            </li>
+            <li><a href=""><span class="las la-shopping-bag"></span><span>Order</span></a></li>
+            <li><a href=""><span class="las la-user-circle"></span><span>Account</span></a></li>
         </ul>
     </div>
     <input type="hidden" id="app-url" value="<?=APP_URL?>">

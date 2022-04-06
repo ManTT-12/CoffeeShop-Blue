@@ -12,7 +12,7 @@
 
 :root {
     --main-color: #DD2F6E;
-    --menu-background-color: #df4e4e6b;
+    --menu-background-color: pink;
     --menu-text-color: white;
     --menu-icon-color: rgb(228, 24, 75);
     --manager-background-color: rgba(223, 162, 162, 0.452);
@@ -26,7 +26,7 @@
     background-color: var(--menu-background-color);
     padding: 10px;
     width: 100%;
-    height: 75px;
+    height: 70px;
     top: 0;
     left: 0;
     display: flex;
@@ -44,15 +44,6 @@
 
 #navbar-brand a:active {
     color: rgba(226, 35, 108, 0.897)
-}
-
-#nav-menu-icon {
-    height: 100%;
-    display: none;
-    padding: 0 4px;
-    align-items: center;
-    font-size: 24px;
-    color: var(--menu-icon-color);
 }
 
 #navbar-menu ul {
@@ -79,6 +70,80 @@
     color: var(--menu-background-color)
 }
 
+#nav-mobile {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--menu-background-color);
+    max-width: 100%;
+    transform: translateY(-100%);
+    z-index: 90;
+}
+
+#nav-mobile-brand {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px;
+    border-bottom: 1px solid var(--menu-background-color);
+}
+
+#brand-name a {
+    color: var(--main-color);
+}
+
+#nav-mobile-menu {
+    padding-top: 5px;
+    margin-left: 8px;
+}
+
+#nav-mobile-menu ul li {
+    padding-top: 5px;
+}
+
+#nav-mobile-menu li a {
+    color: var(--menu-text-color);
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+#nav-mobile-menu a:active {
+    color: var(--menu-background-color)
+}
+
+
+/* btn chức năng cho thanh nav mobile */
+
+#nav-mobile-btn {
+    margin-left: 20px;
+    width: 40px;
+    height: 40px;
+}
+
+#nav-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.137);
+    display: none;
+}
+
+#nav-mobile-togger:checked~#nav-overlay {
+    display: block;
+}
+
+#nav-mobile-togger:checked~#nav-mobile {
+    transform: translateY(0%);
+}
+
 .search-wrapper {
     border: 1px solid #f0f0f0;
     border-radius: 30px;
@@ -101,86 +166,81 @@
     outline: none;
 }
 
-#nav-short-menu {
-    display: none;
-    background-color: var(--menu-background-color);
-    z-index: 100;
-    position: fixed;
-    transition: 0.4s;
-    width: 100%;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    border-top: 1px solid var(--menu-background-color);
-}
-
-#nav-short-menu ul {
-    list-style: none;
-    padding: 0 32px;
-}
-
-#nav-short-menu ul li {
-    padding: 8px;
-}
-
-#nav-short-menu li a {
-    color: var(--menu-text-color);
-    text-transform: uppercase;
-    font-weight: bolder;
-    font-size: 20px;
-    text-decoration: none;
-}
-
-#nav-short-menu a:active {
-    color: var(--menu-background-color)
-}
-
 #nav-short-menu .search-wrapper {
     width: 57%;
     font-size: 20px;
     text-align: end;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     #navbar-menu {
         display: none;
     }
-    #nav-menu-icon {
+    #nav-mobile-btn {
         display: flex;
-    }
-    #nav-short-menu {
-        display: block;
     }
     .search-wrapper {
         display: block;
     }
 }
 
+@media(min-width: 900px) {
+    #nav-mobile,
+    #nav-mobile-btn {
+        display: none;
+    }
+}
+
 #main-content {
     /* transition: margin-top 75ms; */
     padding: 10px 5px;
-    height: 60vh;
+    max-height: 100%;
     display: flex;
     margin-left: 15px;
     margin-right: 15px;
+    z-index: 1;
 }
 
 section {
     min-height: 3.75rem;
     width: 73%;
-    padding-left: 30px;
+    padding: 0 10px;
+}
+
+#latest {
+    margin-bottom: 20px;
+}
+
+#latest-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+}
+
+#latest-name h2 {
+    color: black;
+}
+
+.latest-seemore a:active {
+    color: red;
+}
+
+#latest-all-card {
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: flex-start;
 }
 
 #main-name h2 {
-    text-transform: uppercase;
     color: var(--main-color);
-    text-decoration: underline rgb(236, 73, 87);
 }
 
 .all-card {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    margin-bottom: 20px;
 }
 
 .card {
@@ -190,6 +250,14 @@ section {
     box-sizing: border-box;
     margin-right: 5px;
     padding-bottom: 5px;
+    max-height: 50%;
+    margin-bottom: 4px;
+    z-index: -1;
+}
+
+.card-image {
+    width: 50px;
+    height: 50px;
 }
 
 .card-name a {
@@ -207,6 +275,27 @@ section {
     font-size: 16px;
 }
 
+@media (max-width: 600px) {
+    .content {
+        width: 100%;
+    }
+    .card {
+        text-align: center;
+    }
+}
+
+@media (min-width: 720px) {
+    .content {
+        width: 95%;
+    }
+    .card {
+        width: 25%;
+    }
+    .card-image {
+        width: 100%;
+    }
+}
+
 #manager {
     padding: 10px;
     border: 3px solid rgba(218, 149, 149, 0.411);
@@ -215,6 +304,7 @@ section {
     flex-direction: column;
     justify-content: space-around;
     background-color: var(--manager-background-color);
+    z-index: -1;
 }
 
 #manager__title {
@@ -232,7 +322,7 @@ section {
 }
 
 #manager #list-item {
-    height: 40%;
+    max-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -304,6 +394,15 @@ section {
     justify-content: space-between;
 }
 
+@media (min-width: 1200px) {
+    .content {
+        width: 85%;
+    }
+    #manage {
+        width: 25%;
+    }
+}
+
 
 /* #manager .cart-button {
     height: 40%;
@@ -326,6 +425,7 @@ section {
 }
 
 #login-signup-form {
+    max-height: 50vh;
     padding: 10px;
     border: 3px solid rgba(218, 149, 149, 0.411);
     box-sizing: border-box;
@@ -336,6 +436,7 @@ section {
 
 #login-form input {
     border-radius: 4px;
+    width: 100%;
 }
 
 #login-button button {
@@ -418,7 +519,8 @@ button#user-logout:focus {
 
 @media (max-width: 719px) {
     .content {
-        width: 65%;
+        /* width: 65% */
+        width: 95%;
     }
     .card {
         width: 48%;
@@ -440,38 +542,8 @@ button#user-logout:focus {
     }
 }
 
-@media (max-width: 600px) {
-    .content {
-        width: 100%;
-    }
-    .card {
-        text-align: center;
-    }
-}
-
-@media (min-width: 720px) {
-    .content {
-        width: 95%;
-    }
-    .card {
-        width: 25%;
-    }
-    .card-image {
-        width: 100%;
-    }
-}
-
-@media (min-width: 1200px) {
-    .content {
-        width: 85%;
-    }
-    #manage {
-        width: 25%;
-    }
-}
-
 .search-bar {
-    margin-top: 75px;
+    margin-top: 70px;
     /* width: calc(60%); */
     background-color: var(--manager-background-color);
 }
