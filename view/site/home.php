@@ -22,6 +22,7 @@
                             <div class="card-details">
                                 <div class="card-price"><?=$coffee_latest['price']?>$</div>
                             </div>
+                            <input type="button" class="add-to-card-btn" value="Add to Cart">
                         </div>
                     <?php
                 }
@@ -49,9 +50,10 @@
                                     <img src="<?=COFFEE_IMAGE_PATH.$coffee['image']?>" alt="<?=$coffee['name']?>">
                                 </div>
                                 <div class="card-name"><a href="#"><?=$coffee['name']?></a></div>
-                            <div class="card-details">
+                                <div class="card-details">
                                     <div class="card-price"><?=$coffee['price']?>$</div>
                                 </div>
+                                <input type="button" class="add-to-cart-btn" value="Add to Cart">
                             </div>
                         <?php
                     }
