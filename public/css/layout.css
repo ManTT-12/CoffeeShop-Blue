@@ -279,6 +279,10 @@ section {
     font-size: 16px;
 }
 
+#cart-form {
+    height: 100%;
+}
+
 @media (max-width: 600px) {
     .content {
         width: 100%;
