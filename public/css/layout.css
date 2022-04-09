@@ -33,6 +33,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 10;
 }
 
 #navbar-brand {
@@ -281,7 +282,12 @@ section {
     font-size: 16px;
 }
 
-input .add-to-card-btn {
+#cart-form {
+    height: 100%;
+}
+
+input.add-to-cart-btn {
+    cursor: pointer;
     border: 1px solid white;
     color: var(--add-to-cart-btn);
 }

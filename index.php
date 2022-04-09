@@ -7,7 +7,10 @@ require_once("env.php");
 require_once("includes/function.php");
 require_once("includes/Database.php");
 require_once("includes/Session.php");
+require_once("includes/Class_Cart.php");
 Session::init();
+
+$cart = Cart::loadOrCreate();
 
 $coffees_latest = Database::table('coffees')->take(4)->orderBy(['id' => 'DESC'])->get();
 $coffee_brands = Database::table('coffee_brands')->get();

@@ -2,10 +2,14 @@
 
         <?php 
             if (Session::get('login_user') == true) {
-                require('view/cart/cart.php');
+                ?>
+                    <div id="manager">
+                        <?php $cart->display(); ?>
+                    </div>
+                <?php
             } else {
                 require('view/login/login.php');
             }
-            
+
         ?>
     </div>

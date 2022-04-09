@@ -64,3 +64,17 @@ $('#search-toggle').on('click', function(e) {
         $(this).text("Advanced Search");
     }
 });
+
+$('.add-to-cart-form').on('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData($(this)[0]);
+    const coffeeId = formData.get('coffee-id');
+    const data = {
+        action: "add-to-cart",
+        data: {
+            id: coffeeId,
+            qty: 1
+        }
+    }
+    $('#manager').load('cart.php', data);
+})
