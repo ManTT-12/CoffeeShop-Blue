@@ -15,14 +15,17 @@
                 foreach ($coffees_latest as $coffee_latest) {
                     ?>
                         <div class="card">
-                            <div class="card-image">
-                                <img src="<?=COFFEE_IMAGE_PATH.$coffee_latest['image']?>" alt="<?=$coffee_latest['name']?>">
-                            </div>
-                            <div class="card-name"><a href="#"><?=$coffee_latest['name']?></a></div>
-                            <div class="card-details">
-                                <div class="card-price"><?=$coffee_latest['price']?>$</div>
-                            </div>
-                            <input type="button" class="add-to-card-btn" value="Add to Cart">
+                            <form class="add-to-cart-form" method="POST">
+                                <input type="hidden" name="coffee-id" value="<?=$coffee_latest['id']?>">
+                                <div class="card-image">
+                                    <img src="<?=COFFEE_IMAGE_PATH.$coffee_latest['image']?>" alt="<?=$coffee_latest['name']?>">
+                                </div>
+                                <div class="card-name"><a href="#"><?=$coffee_latest['name']?></a></div>
+                                <div class="card-details">
+                                    <div class="card-price"><?=$coffee_latest['price']?>$</div>
+                                </div>
+                                <input type="submit" class="add-to-cart-btn" value="Add to Cart">
+                            </form>
                         </div>
                     <?php
                 }
@@ -46,14 +49,17 @@
                     foreach ($coffee_brand['coffees_list'] as $coffee) {
                         ?>
                             <div class="card">
-                                <div class="card-image">
-                                    <img src="<?=COFFEE_IMAGE_PATH.$coffee['image']?>" alt="<?=$coffee['name']?>">
-                                </div>
-                                <div class="card-name"><a href="#"><?=$coffee['name']?></a></div>
-                                <div class="card-details">
-                                    <div class="card-price"><?=$coffee['price']?>$</div>
-                                </div>
-                                <input type="button" class="add-to-cart-btn" value="Add to Cart">
+                                <form class="add-to-cart-form" method="POST">
+                                    <input type="hidden" name="coffee-id" value="<?=$coffee['id']?>">
+                                    <div class="card-image">
+                                        <img src="<?=COFFEE_IMAGE_PATH.$coffee['image']?>" alt="<?=$coffee['name']?>">
+                                    </div>
+                                    <div class="card-name"><a href="#"><?=$coffee['name']?></a></div>
+                                    <div class="card-details">
+                                        <div class="card-price"><?=$coffee['price']?>$</div>
+                                    </div>
+                                    <input type="submit" class="add-to-cart-btn" value="Add to Cart">
+                                </form>
                             </div>
                         <?php
                     }

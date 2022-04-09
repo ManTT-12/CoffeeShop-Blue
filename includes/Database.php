@@ -38,11 +38,11 @@ class Database extends PDO
 
     public static function raw($sql)
     {
-        $host = config("mysql_host"); 
-        $port = config("mysql_port");
-        $username = config("mysql_username");
-        $password = config("mysql_password");
-        $database = config("mysql_database");
+        $host = MYSQL_HOST; 
+        $port = MYSQL_PORT;
+        $username = MYSQL_USERNAME;
+        $password = MYSQL_PASSWORD;
+        $database = MYSQL_DATABASE;
 
         $connect = 'mysql:host=' . $host . ';port=' . $port . ';dbname=' . $database;
 
@@ -51,6 +51,26 @@ class Database extends PDO
             $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             return $database->query($sql, PDO::FETCH_ASSOC); 
+        } catch(PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public static function insertRaw($sql)
+    {
+        $host = MYSQL_HOST; 
+        $port = MYSQL_PORT;
+        $username = MYSQL_USERNAME;
+        $password = MYSQL_PASSWORD;
+        $database = MYSQL_DATABASE;
+
+        $connect = 'mysql:host=' . $host . ';port=' . $port . ';dbname=' . $database;
+
+        try {
+            $database = new Database($connect, $username, $password, null);
+            $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $database->exec($sql);
         } catch(PDOException $e) {
             return $e->getMessage();
         }
@@ -90,6 +110,7 @@ class Database extends PDO
             $select_str . 
             ' FROM '. 
             $this->table . 
+            $join_str .
             $condition_str . 
             $sort_str . 
             ' LIMIT 1;
@@ -137,7 +158,7 @@ class Database extends PDO
 
         foreach ($data as $key => $value) {
             $col_name .= $key . ',';
-            $col_holder = ':' . $key . ',';
+            $col_holder .= ':' . $key . ',';
         }
 
         $col_name = substr($col_name, 0, -1);
@@ -147,7 +168,7 @@ class Database extends PDO
         $stmt = $this->prepare($sql);
 
         foreach ($data as $key => $value) {
-            $stmt->bindParam(':' . $key, $value);
+            $stmt->bindValue(':' . $key, $value);
         }
 
         return $stmt->execute();
@@ -160,7 +181,7 @@ class Database extends PDO
 
         foreach ($data as $key => $value) {
             $col_name .= $key . ',';
-            $col_holder = ':' . $key . ',';
+            $col_holder .= ':' . $key . ',';
         }
 
         $col_name = substr($col_name, 0, -1);
