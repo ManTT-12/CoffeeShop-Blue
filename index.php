@@ -9,8 +9,16 @@ require_once("includes/Database.php");
 require_once("includes/Session.php");
 Session::init();
 
+$coffees_latest = Database::table('coffees')->take(4)->orderBy(['id' => 'DESC'])->get();
 $coffee_brands = Database::table('coffee_brands')->get();
 $coffee_types = Database::table('coffee_types')->get();
+
+foreach ($coffee_brands as $key => $coffee_brand) {
+    $coffee_brands[$key]['coffees_list'] = Database::table('coffees')
+        ->where([['brand', '=', $coffee_brand['id']]])
+        ->take(4)
+        ->get();
+}
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];

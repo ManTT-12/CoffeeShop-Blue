@@ -9,6 +9,7 @@ class Database extends PDO
     private $rightJoin = [];
     private $condition = [];
     private $sort = [];
+    private $take = '';
 
     public function __construct($connect, $username, $password, $table) 
     {
@@ -67,6 +68,7 @@ class Database extends PDO
             $join_str .
             $condition_str . 
             $sort_str . 
+            $this->take .
             ';
         ';
 
@@ -273,6 +275,11 @@ class Database extends PDO
             $sort_str
         ];
     }
+
+    public function take($limit = '', $offset = 0) {
+        $this->take = ' LIMIT ' . $limit . ' OFFSET ' . $offset;
+        return $this; 
+    } 
 
     public function paginate($limit = 10)
     {
