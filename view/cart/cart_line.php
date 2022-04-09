@@ -7,7 +7,7 @@
         <div class="item-button-manager">
             <div class="item-quantity">
                 <button class="item-qty-plus">+</button>
-                <input type="text" value="1" class="item-amount">
+                <input type="number" value="1" min="0" class="item-amount" readonly>
                 <button class="item-qty-minius">-</button>
             </div>
             <div class="item-button"><i class="bi bi-x-lg"></i></div>

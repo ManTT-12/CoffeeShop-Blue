@@ -1,6 +1,6 @@
         <div id="manager">
             <div id="manager__title">
-                <div id="welcom-name">Welcome <?=$_SESSION['login_username']?></div>
+                <div id="welcom-name">Welcome <?=$_SESSION['login_user_username']?></div>
                 <div id="logout-button"><button id="user-logout">Logout</button></div>
             </div>
             <div id="list-item">
@@ -29,3 +29,4 @@
                 <button>checkout</button>
             </div>
         </div>
+        <script src="public/js/cart.js"></script>

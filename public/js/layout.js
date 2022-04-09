@@ -1,39 +1,5 @@
-const navMenuIcon = document.getElementById("nav-menu-icon");
-const navShortMenu = document.getElementById("nav-short-menu");
-
 const APP_URL = $('#app-url').val();
 const API_URL = $('#api-url').val();
-
-navMenuIcon.addEventListener('click', function() {
-    if (navShortMenu.style.opacity == "1") {
-        navShortMenu.style.opacity = '0';
-        navShortMenu.style.pointerEvents = 'none';
-    } else {
-        navShortMenu.style.opacity = '1';
-        navShortMenu.pointerEvents = 'auto';
-    }
-})
-
-var plus = document.querySelector(".item-qty-plus");
-var minus = document.querySelector(".item-qty-minius");
-var qty = document.querySelector(".item-amount");
-let count = 1;
-plus.onclick = () => {
-    if (count < 50) {
-        count++;
-    }
-    console.log(count);
-    qty.value = count;
-}
-minus.onclick = () => {
-    if (count > 1) {
-        count--;
-    } else if (count == 1) {
-        count = 1;
-    }
-    console.log(count);
-    qty.value = count;
-}
 
 $('#login-signup-form').on('submit', function(e) {
     e.preventDefault();

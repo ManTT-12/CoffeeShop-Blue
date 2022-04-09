@@ -304,7 +304,6 @@ section {
     flex-direction: column;
     justify-content: space-around;
     background-color: var(--manager-background-color);
-    z-index: -1;
 }
 
 #manager__title {
