@@ -15,6 +15,7 @@
     --menu-background-color: pink;
     --menu-text-color: white;
     --menu-icon-color: rgb(228, 24, 75);
+    --add-to-cart-btn: lightcoral;
     --manager-background-color: rgba(223, 162, 162, 0.452);
     --manager-button-color: rgba(212, 65, 97, 0.596);
     --color-manager-item: rgba(218, 50, 101, 0.274);
@@ -252,6 +253,7 @@ section {
     padding-bottom: 5px;
     max-height: 50%;
     margin-bottom: 4px;
+    align-items: center;
 }
 
 .card-image {
@@ -281,6 +283,11 @@ section {
 
 #cart-form {
     height: 100%;
+}
+
+input.add-to-card-btn {
+    border: 1px solid white;
+    color: var(--add-to-cart-btn);
 }
 
 @media (max-width: 600px) {
