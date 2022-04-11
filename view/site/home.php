@@ -17,6 +17,7 @@
                         <div class="card">
                             <form class="add-to-cart-form" method="POST">
                                 <input type="hidden" name="coffee-id" value="<?=$coffee_latest['id']?>">
+                                <input type="hidden" name="qty" value="1">
                                 <div class="card-image">
                                     <img src="<?=COFFEE_IMAGE_PATH.$coffee_latest['image']?>" alt="<?=$coffee_latest['name']?>">
                                 </div>
@@ -51,6 +52,7 @@
                             <div class="card">
                                 <form class="add-to-cart-form" method="POST">
                                     <input type="hidden" name="coffee-id" value="<?=$coffee['id']?>">
+                                    <input type="hidden" name="qty" value="1">
                                     <div class="card-image">
                                         <img src="<?=COFFEE_IMAGE_PATH.$coffee['image']?>" alt="<?=$coffee['name']?>">
                                     </div>

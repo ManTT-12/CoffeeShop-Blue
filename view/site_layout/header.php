@@ -24,7 +24,7 @@
 <body>
     <div id="navbar">
         <div id="navbar-brand">
-            <h2><a href=""><span class="lab la-accusoft"></span><span>Coffee Shop</span></a></h2>
+            <h2><a href="<?=APP_URL?>"><span class="lab la-accusoft"></span><span>Coffee Shop</span></a></h2>
         </div>
         <label for="nav-mobile-togger" id="nav-mobile-btn">
             <span class="las la-bars"></span>
@@ -68,50 +68,111 @@
     <input type="hidden" id="coffee-image-path" value="<?=COFFEE_IMAGE_PATH?>">
 
     <div class="search-bar" >
-        <form action="<?=APP_URL?>index.php?action=search">
+        <form id="coffee-search-form" action="<?=APP_URL?>index.php">
+            <input type="hidden" id="search-action" name="action" value="<?=$searchAction?>">
             <div class="search-info">
                 <div class="search-wrapper bottom">
                     <button>
                         <span class="las la-search"></span>
                     </button>
-                    <input type="search" name="keywords" placeholder="Search here" class="input-search">
+                    <input type="search" id="search-keywords" value="<?=$searchKeywords ?? ''?>" name="keywords" placeholder="Search here" class="input-search">
                 </div>
-                <button type="button" id="search-toggle" class="drop-down">Advanced Search</button>
+                <button type="button" id="search-toggle" class="drop-down"><?=$searchAction == 'search' ? 'Advanced Search' : 'Normal Search'?></button>
             </div>
-            <div class="filter" id="advanced-search-filter">
-                <div class="row">
-                    <span style="margin-right: 5px">Type:</span> 
-                    <select name="coffee-type" id="search-coffee-type" >
-                        <option value="">All Type</option>
-                        <?php
-                        foreach ($coffee_types as $coffee_type) {
-                            ?>
-                            <option value="<?=$coffee_type['id']?>"><?=$coffee_type['name']?></option>
-                            <?php
-                        }
-                        ?>
-                    </select>
-                    <span style="margin: 0 5px 0 20px">Brand:</span> 
-                    <select name="coffee-brand" id="search-coffee-brand">
-                        <option value="">All Brand</option>
-                        <?php
-                        foreach ($coffee_brands as $coffee_brand) {
-                            ?>
-                            <option value="<?=$coffee_brand['id']?>"><?=$coffee_brand['name']?></option>
-                            <?php
-                        }
-                        ?>
-                    </select>
-                </div>
-                <div class="row">
-                    <span style="margin-right: 5px">Date From:</span> <input type="date">
-                    <span style="margin: 0 5px 0 20px">To:</span> <input type="date">
-                </div>
-                <div class="row">
-                    <span style="margin-right: 5px">Price From:</span> <input type="number">
-                    <span style="margin: 0 5px 0 20px">To:</span> <input type="number">
-                </div>
-            </div>
+            <?php
+                if ($searchAction == 'advanced-search') {
+                    ?>
+                        <div style="display:block;" class="filter" id="advanced-search-filter">
+                            <div class="row">
+                                <span style="margin-right: 5px">Type:</span> 
+                                <select id="search-coffee-type" name="coffee-type" id="search-coffee-type" >
+                                    <option value="">All Type</option>
+                                    <?php
+                                    foreach ($coffee_types as $coffee_type) {
+                                        ?>
+                                        <option <?= ($searchType ?? '') == $coffee_type['id'] ? 'selected' : '' ?> value="<?=$coffee_type['id']?>"><?=$coffee_type['name']?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                                <span style="margin: 0 5px 0 20px">Brand:</span> 
+                                <select id="search-coffee-brand" name="coffee-brand" id="search-coffee-brand">
+                                    <option value="">All Brand</option>
+                                    <?php
+                                    foreach ($coffee_brands as $coffee_brand) {
+                                        ?>
+                                        <option <?= ($searchBrand ?? '') == $coffee_brand['id'] ? 'selected' : '' ?> value="<?=$coffee_brand['id']?>"><?=$coffee_brand['name']?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <input type="hidden" name="coffee-date" id="search-coffee-date">
+                                    <span style="margin-right: 5px">Date From:</span> <input id="search-from-date" type="date" value="<?=$minDate ?? ''?>">
+                                    <span style="margin: 0 5px 0 20px">To:</span> <input id="search-to-date" type="date" value="<?=$maxDate ?? ''?>" ><br>
+                                    <span class="search-error text-danger" style="font-size:12px; margin-left: 100px" id="search-date-error"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <input type="hidden" name="coffee-price" id="search-coffee-price">
+                                    <span style="margin-right: 5px">Price From:</span> <input id="search-from-price" value="<?=$minPrice ?? ''?>" >
+                                    <span style="margin: 0 5px 0 20px">To:</span> <input id="search-to-price" value="<?=$maxPrice ?? ''?>" ><br>
+                                    <span class="search-error text-danger" style="font-size:12px; margin-left: 100px" id="search-price-error"></span>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                } else {
+                    ?>
+                        <div class="filter" id="advanced-search-filter">
+                            <div class="row">
+                                <span style="margin-right: 5px">Type:</span> 
+                                <select id="search-coffee-type" name="coffee-type" id="search-coffee-type" disabled>
+                                    <option value="">All Type</option>
+                                    <?php
+                                    foreach ($coffee_types as $coffee_type) {
+                                        ?>
+                                        <option value="<?=$coffee_type['id']?>"><?=$coffee_type['name']?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                                <span style="margin: 0 5px 0 20px">Brand:</span> 
+                                <select id="search-coffee-brand" name="coffee-brand" id="search-coffee-brand" disabled>
+                                    <option value="">All Brand</option>
+                                    <?php
+                                    foreach ($coffee_brands as $coffee_brand) {
+                                        ?>
+                                        <option value="<?=$coffee_brand['id']?>"><?=$coffee_brand['name']?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <input type="hidden" name="coffee-date" id="search-coffee-date" disabled>
+                                    <span style="margin-right: 5px">Date From:</span> <input id="search-from-date" type="date" disabled>
+                                    <span style="margin: 0 5px 0 20px">To:</span> <input id="search-to-date" type="date" disabled><br>
+                                    <span class="search-error text-danger" style="font-size:12px; margin-left: 100px" id="search-date-error"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <input type="hidden" name="coffee-price" id="search-coffee-price" disabled>
+                                    <span style="margin-right: 5px">Price From:</span> <input id="search-from-price" disabled>
+                                    <span style="margin: 0 5px 0 20px">To:</span> <input id="search-to-price" disabled><br>
+                                    <span class="search-error text-danger" style="font-size:12px; margin-left: 100px" id="search-price-error"></span>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                }
+            ?>
+
         </form>
     </div>
 
