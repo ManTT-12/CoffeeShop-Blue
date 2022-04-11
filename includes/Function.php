@@ -22,3 +22,11 @@ function view($view, $data = false)
     }
     require_once('view/' . $view . '.php');
 }
+
+function isRealDate($date) { 
+    if (false === strtotime($date)) { 
+        return false;
+    } 
+    list($year, $month, $day) = explode('-', $date); 
+    return checkdate($month, $day, $year);
+}

@@ -443,11 +443,9 @@ input.add-to-cart-btn {
 #login-signup-form {
     max-height: 50vh;
     padding: 10px;
-    border: 3px solid rgba(218, 149, 149, 0.411);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    background-color: var(--manager-background-color);
 }
 
 #login-form input {
@@ -608,4 +606,8 @@ button#user-logout:focus {
 
 .input-search {
     width: 100%;
+}
+
+.pagination {
+    justify-content: center;
 }

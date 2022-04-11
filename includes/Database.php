@@ -383,61 +383,63 @@ class Paginator
             }
 
         }
-        
-        ?>
-            <nav>
-                <ul class="pagination">
-                <?php
-                    if ($this->currentPage == $firstPage) {
+        if ($this->totalRow > 0 && $this->totalRow > $this->rowPerPage) {
+            ?>
+                <nav>
+                    <ul class="pagination">
+                    <?php
+                        if ($this->currentPage == $firstPage) {
+                            ?>
+                                <li class="page-item disabled"><a class="page-link" tabindex="-1">Previous</a></li>
+                                <li class="page-item disabled"><a class="page-link" tabindex="-1"><?=$firstPage?></a></li>
+                            <?php
+                        } else {
+                            ?>
+                                <li class="page-item"><a class="page-link" href="<?=$query?><?=$this->currentPage - 1?>">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="<?=$query?><?=$firstPage?>"><?=$firstPage?></a></li>
+                            <?php
+                        }
+                        if ($leftCurrentPage > $firstPage + 1) {
+                            ?>
+                                <li class="page-item"><span class="page-link">...</span></li>
+                            <?php
+                        } 
+                        for ($i = $leftCurrentPage; $i <= $this->currentPage - 1; $i++) { 
+                            ?>
+                                <li class="page-item"><a class="page-link" href="<?=$query?><?=$i?>"><?=$i?></a></li>
+                            <?php
+                        }
+                        if ($this->currentPage != $firstPage && $this->currentPage != $lastPage) {
+                            ?>
+                                <li class="page-item disabled"><a class="page-link" tabindex="-1"><?=$this->currentPage?></a></li>
+                            <?php
+                        }
+                        for ($i = $this->currentPage + 1; $i <= $rightCurrentPage; $i++) { 
+                            ?>
+                                <li class="page-item"><a class="page-link" href="<?=$query?><?=$i?>"><?=$i?></a></li>
+                            <?php
+                        }
+                        if ($rightCurrentPage < $lastPage - 1) {
+                            ?>
+                                <li class="page-item"><span class="page-link">...</span></li>
+                            <?php
+                        } 
+                        if ($this->currentPage == $lastPage) {
+                            ?>
+                                <li class="page-item disabled"><a class="page-link" tabindex="-1"><?=$lastPage?></a></li>
+                                <li class="page-item disabled"><a class="page-link" tabindex="-1">Next</a></li>
+                            <?php
+                        } else {
+                            ?>
+                                <li class="page-item"><a class="page-link" href="<?=$query?><?=$lastPage?>"><?=$lastPage?></a></li>
+                                <li class="page-item"><a class="page-link" href="<?=$query?><?=$this->currentPage + 1?>">Next</a></li>
+                            <?php
+                        }
                         ?>
-                            <li class="page-item disabled"><a class="page-link" tabindex="-1">Previous</a></li>
-                            <li class="page-item disabled"><a class="page-link" tabindex="-1"><?=$firstPage?></a></li>
-                        <?php
-                    } else {
-                        ?>
-                            <li class="page-item"><a class="page-link" href="<?=$query?><?=$this->currentPage - 1?>">Previous</a></li>
-                            <li class="page-item"><a class="page-link" href="<?=$query?><?=$firstPage?>"><?=$firstPage?></a></li>
-                        <?php
-                    }
-                    if ($leftCurrentPage > $firstPage + 1) {
-                        ?>
-                            <li class="page-item"><span class="page-link">...</span></li>
-                        <?php
-                    } 
-                    for ($i = $leftCurrentPage; $i <= $this->currentPage - 1; $i++) { 
-                        ?>
-                            <li class="page-item"><a class="page-link" href="<?=$query?><?=$i?>"><?=$i?></a></li>
-                        <?php
-                    }
-                    if ($this->currentPage != $firstPage && $this->currentPage != $lastPage) {
-                        ?>
-                            <li class="page-item disabled"><a class="page-link" tabindex="-1"><?=$this->currentPage?></a></li>
-                        <?php
-                    }
-                    for ($i = $this->currentPage + 1; $i <= $rightCurrentPage; $i++) { 
-                        ?>
-                            <li class="page-item"><a class="page-link" href="<?=$query?><?=$i?>"><?=$i?></a></li>
-                        <?php
-                    }
-                    if ($rightCurrentPage < $lastPage - 1) {
-                        ?>
-                            <li class="page-item"><span class="page-link">...</span></li>
-                        <?php
-                    } 
-                    if ($this->currentPage == $lastPage) {
-                        ?>
-                            <li class="page-item disabled"><a class="page-link" tabindex="-1"><?=$lastPage?></a></li>
-                            <li class="page-item disabled"><a class="page-link" tabindex="-1">Next</a></li>
-                        <?php
-                    } else {
-                        ?>
-                            <li class="page-item"><a class="page-link" href="<?=$query?><?=$lastPage?>"><?=$lastPage?></a></li>
-                            <li class="page-item"><a class="page-link" href="<?=$query?><?=$this->currentPage + 1?>">Next</a></li>
-                        <?php
-                    }
-                    ?>
-                </ul>
-            </nav>
-        <?php
+                    </ul>
+                </nav>
+            <?php
+        }
+
     }
 }

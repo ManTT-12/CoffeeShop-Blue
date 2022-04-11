@@ -1,15 +1,11 @@
         </section>
-
-        <?php 
-            if (Session::get('login_user') == true) {
-                ?>
-                    <div id="manager">
-                        <?php $cart->display(); ?>
-                    </div>
-                <?php
-            } else {
-                require('view/login/login.php');
-            }
-
-        ?>
+        <div id="manager">
+            <?php 
+                if (Session::get('login_user') == true) {
+                    $cart->display();
+                } else {
+                    require('view/login/login.php');
+                }
+            ?>
+        </div>
     </div>
