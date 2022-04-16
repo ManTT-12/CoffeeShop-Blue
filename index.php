@@ -42,7 +42,7 @@ if (isset($_GET['action'])) {
                 $searchBrand = trim($_GET['coffee-brand']);
                 $condition[] = ['coffees.brand', '=', $searchBrand];
             }
-    
+
             if (isset($_GET['coffee-type']) && $_GET['coffee-type'] != '') {
                 $searchType = trim($_GET['coffee-type']);
                 $condition[] = ['coffees.type', '=', $searchType];
@@ -68,12 +68,12 @@ if (isset($_GET['action'])) {
                 if (count($searchDate) == 2) {
                     $minDate = $searchDate[0];
                     $maxDate = $searchDate[1];
-                    if (isRealDate($minDate) && isRealDate($maxDate)) { 
+                    if (isRealDate($minDate) && isRealDate($maxDate)) {
                         if ($minDate <= $maxDate) {
                             $condition[] = ['coffees.created_at', '>=', $minDate];
                             $condition[] = ['coffees.created_at', '<=', $maxDate];
                         }
-                    } 
+                    }
                 }
             }
         }
@@ -87,6 +87,8 @@ if (isset($_GET['action'])) {
         $searchResultCount = $searchResult->totalRow;
 
         require_once('view/site/search.php');
+    }else if($action == 'register') {
+        require_once('view/site/home.php');
     }
 
 } else {

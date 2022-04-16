@@ -22,7 +22,7 @@
             </div>
             <div id="signup-button">
                 <label for="signup-title">Don't have account?</label>
-                <a href="">SignUp</a>
+                <a href="<?=APP_URL?>register.php" >SignUp</a>
             </div>
         </form>
-        
+
