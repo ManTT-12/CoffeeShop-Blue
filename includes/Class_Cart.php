@@ -34,7 +34,7 @@ class Cart {
         }
 
         if ($subTotal > 30) {
-            $total = $subTotal - $shippingFee;
+            $total = $subTotal + $shippingFee;
         } else {
             $shippingFee = 0;
             $total = $subTotal;

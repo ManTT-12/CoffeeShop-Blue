@@ -52,4 +52,12 @@ class Session
             return header('location: ' . APP_URL . 'admin/index.php');
         }
     }
+
+    public static function checkAuthAjax()
+    {
+        if(empty(self::get('login_user')) || self::get('login_user') == false) {
+            return false;
+        }
+        return true;
+    }
 }
