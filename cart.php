@@ -10,6 +10,12 @@ require_once("includes/Session.php");
 require_once("includes/Class_Cart.php");
 Session::init();
 
+if (!Session::checkAuthAjax()) {
+    $login_message = 'Please login to add item to cart';
+    include_once('view/login/login.php');
+    exit();
+}
+
 $cart = Cart::loadOrCreate();
 
 $action = '';

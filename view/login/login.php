@@ -2,7 +2,7 @@
             <div>
                 <div id="login-title">
                     <h3>Login</h3>
-                    <span class="text-danger d-block text-center" style="font-size: 13px;" id="login-title-message"></span>
+                    <span class="text-danger d-block text-center" style="font-size: 13px;" id="login-title-message"><?=$login_message ?? ''?></span>
                 </div>
                 <div id="login-form">
                     <div class="form-group">
@@ -12,7 +12,7 @@
                     </div>
                     <div class="form-group">
                         <label for="login-password">Password:</label>
-                        <input type="password" name="password" id="login-password" placeholder="Please enter password..."><br>
+                        <input type="password" name="password" id="login-password" placeholder="Please enter password..." autocomplete="off"><br>
                         <span class="text-danger login-error" style="font-size: 12px;" id="login-password-error"></span>
                     </div>
                 </div>
@@ -25,4 +25,5 @@
                 <a href="<?=APP_URL?>register.php" >SignUp</a>
             </div>
         </form>
+        <script src="public/js/sidebar.js"></script>
 

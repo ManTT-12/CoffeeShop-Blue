@@ -37,7 +37,7 @@
                                 <button id="cart-checkout">CHECKOUT</button>
                             </div>
                         </form>
-                        <script src="public/js/cart.js"></script>
+                        <script src="public/js/sidebar.js"></script>
                     <?php
                 }
             ?>
