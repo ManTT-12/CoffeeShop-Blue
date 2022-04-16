@@ -271,6 +271,7 @@ section {
     font-weight: bolder;
     font-size: 20px;
     color: black;
+    text-transform: capitalize;
 }
 
 .card-name a:hover {
@@ -370,6 +371,7 @@ input.add-to-cart-btn {
 .item-title-name {
     margin: 0 5px;
     text-align: left;
+    text-transform: capitalize;
 }
 
 .item-quantity {
@@ -388,7 +390,7 @@ input.add-to-cart-btn {
 }
 
 .item-amount {
-    width: 38px;
+    width: 40px;
     height: 23px;
     text-align: center;
 }

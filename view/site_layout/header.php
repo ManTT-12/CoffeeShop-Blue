@@ -36,7 +36,7 @@
                     <a href=""><span>About</span></a>
                 </li>
                 <li>
-                    <a href=""><span>Contract</span></a>
+                    <a href=""><span>Contacts</span></a>
                 </li>
                 <li><a href=""><span class="las la-shopping-bag"></span><span>Order</span></a></li>
                 <li><a href=""><span class="las la-user-circle"></span><span>Account</span></a></li>
@@ -57,7 +57,7 @@
                 <a href=""><span>About</span></a>
             </li>
             <li>
-                <a href=""><span>Contract</span></a>
+                <a href=""><span>Contacts</span></a>
             </li>
             <li><a href=""><span class="las la-shopping-bag"></span><span>Order</span></a></li>
             <li><a href=""><span class="las la-user-circle"></span><span>Account</span></a></li>
