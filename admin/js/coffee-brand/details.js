@@ -5,7 +5,7 @@ const COFFEE_BRAND_ID = $('#coffee-brand-details-id').val();
 
 axios.get(API_URL + 'admin/coffee-brands/' + COFFEE_BRAND_ID, {
     headers: {
-        'Authorization': 'Bearer ' + ACCESS_TOKEN
+        'Authorization': 'Bearer ' + Cookies.get('admin_token')
     }
 }).then(function (response) {
     //handle success

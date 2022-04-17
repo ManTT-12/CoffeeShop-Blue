@@ -36,7 +36,7 @@ function coffeeDetailsDelete()
             method: 'delete',
             url: API_URL + 'admin/coffees/' + COFFEE_ID,
             headers: {
-                'Authorization': 'Bearer ' + ACCESS_TOKEN
+                'Authorization': 'Bearer ' + Cookies.get('admin_token')
             }
         }).then(function (response) {
             //handle success

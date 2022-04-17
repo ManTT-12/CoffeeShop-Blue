@@ -51,7 +51,7 @@ function coffeeBrandDataTable(data) {
 function getCoffeeBrandList () {
     axios.get(API_URL + 'admin/coffee-brands/' , {
         headers: {
-            'Authorization': 'Bearer ' + ACCESS_TOKEN
+            'Authorization': 'Bearer ' + Cookies.get('admin_token')
         }
     }).then(function (response) {
         // handle success

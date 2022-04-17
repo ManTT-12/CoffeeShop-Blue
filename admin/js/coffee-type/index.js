@@ -10,7 +10,7 @@ function coffeeTypeDelete(e, coffeeTypeId)
             method: 'delete',
             url: API_URL + 'admin/coffee-types/' + coffeeTypeId,
             headers: {
-                'Authorization': 'Bearer ' + ACCESS_TOKEN
+                'Authorization': 'Bearer ' + Cookies.get('admin_token')
             }
         }).then(function (response) {
             //handle success

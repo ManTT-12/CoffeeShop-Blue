@@ -11,7 +11,7 @@ function coffeeDelete(e, coffeeId)
             method: 'delete',
             url: API_URL + 'admin/coffees/' + coffeeId,
             headers: {
-                'Authorization': 'Bearer ' + ACCESS_TOKEN
+                'Authorization': 'Bearer ' + Cookies.get('admin_token')
             }
         }).then(function (response) {
             //handle success
