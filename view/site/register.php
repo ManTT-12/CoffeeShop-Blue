@@ -55,6 +55,11 @@
                 return this.optional(element) || pattern.test(value);
             }
             $.validator.addMethod("checkpassword", checkPassword, "Mật khẩu không hợp lệ!");
+
+            $.validator.addMethod("noSpace", function(value, element) {
+                return (value.trim() == value) && (value.indexOf(" ") < 0);
+            }, "Vui lòng nhập họ và tên!");
+
             $("#register-form").validate({
                 rules: {
                     name: {
