@@ -20,27 +20,27 @@
             <div class="wrapper-form">
                 <div class="input-field">
                     <label class="label-primary" for="name">Họ và tên</label>
-                    <input type="text" name="name">
+                    <input type="text" name="name" >
                     <!-- <span class="form-message"></span> -->
                 </div>
                 <div class="input-field">
                     <label class="label-primary" for="email">Địa chỉ email</label>
-                    <input type="email" name="email">
+                    <input type="email" name="email" >
                     <!-- <span id="form-message-email"></span> -->
                 </div>
                 <div class="input-field">
                     <label class="label-primary" for="phonenumber">Số điện thoại</label>
-                    <input type="text" name="phonenumber">
+                    <input type="text" name="phonenumber" >
                     <!-- <span id="form-message-phone"></span> -->
                 </div>
                 <div class="input-field">
                     <label class="label-primary" for="username">Username</label>
-                    <input type="text" name="username">
+                    <input type="text" name="username" required>
                     <span id="form-message-username"><?php echo $message ?? ""; ?></span>
                 </div>
                 <div class="input-field">
                     <label class="label-primary" for="password">Password</label>
-                    <input type="password" name="password">
+                    <input type="password" name="password" >
                     <!-- <span class="form-message"></span> -->
                 </div>
                 <input type="submit" value="register" class="btn-register" name="action">
@@ -51,19 +51,20 @@
     <script>
         $(function() {
             function checkPassword(value, element ) {
-                let pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+                let pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&-])[A-Za-z\d@#$!%*?&-]{8,20}$/;
                 return this.optional(element) || pattern.test(value);
             }
             $.validator.addMethod("checkpassword", checkPassword, "Mật khẩu không hợp lệ!");
 
-            $.validator.addMethod("noSpace", function(value, element) {
-                return (value.trim() == value) && (value.indexOf(" ") < 0);
-            }, "Vui lòng nhập họ và tên!");
+            $.validator.addMethod("checkName", function(value, element) {
+                return (value.trim() == value) && (value.indexOf(" ") > 0);
+            }, "Họ và tên không hợp lệ!");
 
             $("#register-form").validate({
                 rules: {
                     name: {
                         required: true,
+                        checkName: true,
                     },
                     email: {
                         required: true,
@@ -76,13 +77,18 @@
                         maxlength: 11
                     },
                     username: {
-                        required: true,
+                        required: {
+                            depends:function(){
+                                $(this).val($.trim($(this).val()));
+                                return true;
+                            }
+                        },
                         minlength: 6,
-                        maxlength: 20
+                        maxlength: 20,
                     },
                     password: {
                         required: true,
-                        checkpassword: true
+                        checkpassword: true,
                     }
                 },
                 messages: {
@@ -103,10 +109,12 @@
                     username: {
                         required: "Vui lòng nhập username!",
                         minlength: "Username phải có ít nhất 6 ký tự!",
-                        maxlength: "Username tối đa có nhiều nhất 20 ký tự!"
+                        maxlength: "Username tối đa 20 ký tự!"
                     },
                     password: {
                         required: "Vui lòng nhập password!",
+                        minlength: "Password phải có ít nhất 8 ký tự!",
+                        maxlength: "Password tối đa 20 ký tự!"
                     }
                 }
             });
